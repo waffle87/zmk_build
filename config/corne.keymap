@@ -8,6 +8,51 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
+&mt {
+    tapping_term_ms = <420>;
+};
+
+ / {
+    combos {
+        compatible = "zmk,combos";
+        combo_ent {
+            timeout-ms = <50>;
+            key-positions = <4 7>;
+            bindings = <&kp ENTER>;
+        };
+        combo_quote {
+            timeout-ms = <50>;
+            key-positions = <17 18>;
+            bindings = <&kp SQT>;
+        };
+        combo_ques {
+            timeout-ms = <50>;
+            key-positions = <28 31>;
+            bindings = <&kp QUESTION>;
+        };
+        combo_dquote {
+            timeout-ms = <50>;
+            key-positions = <27 31>;
+            bindings = <&kp DQT>;
+        };
+        combo_col {
+            timeout-ms = <50>;
+            key-positions = <5 6>;
+            bindings = <&kp COLON>;
+        };
+        combo_unds {
+            timeout-ms = <50>;
+            key-positions = <29 30>;
+            bindings = <&kp UNDER>;
+        };
+        combo_mins {
+            timeout-ms = <50>;
+            key-positions = <16 19>;
+            bindings = <&kp MINUS>; 
+        };
+    };
+};
+
 / {
         keymap {
                 compatible = "zmk,keymap";
