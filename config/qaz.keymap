@@ -25,7 +25,7 @@
     &mt LALT Q      &kp W      &kp E       &kp R       &kp T  &kp Y  &kp U       &kp I       &kp O      &mt RALT P
     &mt LSHFT A &kp S &kp D &kp F &kp G  &kp H  &kp J &kp K &mt RSHFT L &kp BSPC
     &mt LCTL Z                 &kp X       &kp C       &kp V  &kp B  &kp N       &kp M       &kp COMMA  &mt RCTL
-    &kp K_NEXT  &trans   &kp LGUI       &lt NAV SPACE    &mo NAV   &kp RC(RS(V))   &trans    &trans
+    &trans  &trans   &kp LGUI       &lt NAV SPACE    &mo NAV   &kp RC(RS(V))   &trans    &trans
             >;
         };
         num_sym {
@@ -39,10 +39,10 @@
 
     nav {
             bindings = <
-    &bt BT_CLR &bt BT_NXT &bt BT_PRV &none       &none &none &none       &kp UP       &none     &kp BSPC
-    &trans     &trans     &trans     &trans      &none &none &kp LEFT    &kp DOWN     &kp RIGHT &none
+    &kp MINUS &kp EQUAL &kp LBKT &kp RBKT       &kp BSLH &none &none       &none       &none     &none
+    &kp UNDER     &kp PLUS     &kp LBRC     &kp RBRC      &kp PIPE &none &none    &none    &none &none
     &none                 &none      &none       &none &none &none       &none        &none     &none
-    &none      &none      &none         &trans        &trans             &kp RET      &trans    &kp FSLH
+    &bootloader      &reset      &bt BT_CLR         &kp SEMI        &trans             &none      &none    &none
             >;
         };
     };
