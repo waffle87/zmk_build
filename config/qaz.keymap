@@ -25,7 +25,7 @@
     &mt LALT Q      &kp W      &kp E       &kp R       &kp T  &kp Y  &kp U       &kp I       &kp O      &mt RALT P
     &mt LSHFT A &kp S &kp D &kp F &kp G  &kp H  &kp J &kp K &mt RSHFT L &kp BSPC
     &mt LCTL Z                 &kp X       &kp C       &kp V  &kp B  &kp N       &kp M       &kp COMMA  &mt RCTL
-    &trans  &trans   &kp LGUI       &lt NAV SPACE    &mo NAV   &kp RC(RS(V))   &trans    &trans
+    &cp C_VOL_DN  &trans   &kp LGUI       &lt NAV SPACE    &mo NAV   &kp RC(RS(V))   &trans    &cp C_VOL_UP
             >;
         };
         num_sym {
