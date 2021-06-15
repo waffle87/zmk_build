@@ -25,7 +25,7 @@
     &mt LALT Q      &kp W      &kp E       &kp R       &kp T  &kp Y  &kp U       &kp I       &kp O      &mt RALT P
     &mt LSHFT A &kp S &kp D &kp F &kp G  &kp H  &kp J &kp K &mt RSHFT L &kp BSPC
     &mt LCTL Z                 &kp X       &kp C       &kp V  &kp B  &kp N       &kp M       &kp COMMA  &mt RCTL
-    &cp C_VOL_DN  &trans   &kp LGUI       &lt NAV SPACE    &mo NAV   &kp RC(RS(V))   &trans    &cp C_VOL_UP
+    &trans  &trans   &kp LGUI       &lt NAV SPACE    &mo NAV   &kp RC(RS(V))   &trans    &trans
             >;
         };
         num_sym {
@@ -33,7 +33,7 @@
     &mt LALT N1     &kp N2     &kp N3     &kp N4     &kp N5 &kp N6 &kp N7     &kp N8      &kp N9    &mt RALT N0
     &mt LSHFT EXCL    &kp AT     &kp HASH     &kp DLLR     &kp PRCNT &kp CARET &kp AMPERSAND     &kp ASTRK      &kp LPAR &mt RSHFT RPAR
     &mt LCTL ESC        &kp TAB      &kp CAPS    &kp TILDE  &kp GRAVE  &kp LEFT      &kp UP       &kp DOWN     &mt RCTL RIGHT
-    &cp C_PREV &trans    &kp LGUI         &trans        &kp FSLH             &kp RGUI     &trans    &cp C_NEXT
+    &trans &trans    &kp LGUI         &trans        &kp FSLH             &kp RGUI     &trans    &trans
             >;
         };
 
