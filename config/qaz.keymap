@@ -12,6 +12,47 @@
     tapping_term_ms = <420>;
 };
 
+ / {
+    combos {
+        compatible = "zmk,combos";
+        combo_ent {
+            timeout-ms = <50>;
+            key-positions = <3 6>;
+            bindings = <&kp ENTER>;
+        };
+        combo_quote {
+            timeout-ms = <50>;
+            key-positions = <14 15>;
+            bindings = <&kp SQT>;
+        };
+        combo_ques {
+            timeout-ms = <50>;
+            key-positions = <23 26>;
+            bindings = <&kp QUESTION>;
+        };
+        combo_dquote {
+            timeout-ms = <50>;
+            key-positions = <22 26>;
+            bindings = <&kp DQT>;
+        };
+        combo_col {
+            timeout-ms = <50>;
+            key-positions = <4 5>;
+            bindings = <&kp COLON>;
+        };
+        combo_unds {
+            timeout-ms = <50>;
+            key-positions = <24 25>;
+            bindings = <&kp UNDER>;
+        };
+        combo_mins {
+            timeout-ms = <50>;
+            key-positions = <13 16>;
+            bindings = <&kp MINUS>; 
+        };
+    };
+};
+
 #define DEFAULT 0
 #define NUM_SYM 1
 #define NAV     2
