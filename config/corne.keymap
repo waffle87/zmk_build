@@ -12,6 +12,10 @@
     tapping_term_ms = <420>;
 };
 
+&lt {
+    tapping_term_ms = <350>;
+};
+
  / {
     combos {
         compatible = "zmk,combos";
