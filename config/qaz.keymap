@@ -13,7 +13,7 @@
 };
 
 &lt {
-    tapping_term_ms = <350>;
+    tapping_term_ms = <430>;
 };
 
  / {
