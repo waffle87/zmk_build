@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/ext_power.h> 
 
 &mt {
     quick_tap_ms = <150>;
@@ -89,7 +90,7 @@
     &kp MINUS &kp EQUAL &kp LBKT &kp RBKT       &kp BSLH &none &none       &none       &none     &none
     &kp UNDER     &kp PLUS     &kp LBRC     &kp RBRC      &kp PIPE &none &none    &none    &none &none
     &none                 &none      &none       &none &none &none       &none        &none     &none
-    &bootloader      &reset      &bt BT_CLR         &kp SEMI        &trans             &none      &none    &none
+    &bootloader      &reset      &bt BT_CLR         &kp SEMI        &trans             &ext_power EP_TOG      &none    &none
             >;
         };
     };
