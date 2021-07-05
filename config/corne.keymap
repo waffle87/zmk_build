@@ -80,9 +80,9 @@
                 };
                 raise_layer {
                         bindings = <
-   &trans   &mt LALT MINUS  &kp EQUAL &kp LBKT &kp RBKT &kp BSLH     &trans &trans &trans &trans &kp RALT       &bt BT_CLR
-   &trans   &mt LSHFT UNDER &kp PLUS  &kp LBRC &kp RBRC &kp PIPE     &trans &trans &trans &trans &kp LSHFT      &reset 
-   &trans   &mt LCTL F1     &kp F2    &kp F3   &kp F4   &kp F5       &kp F6 &kp F7 &kp F8 &kp F9 &mt RCTL F10   &bootloader 
+   &bt BT_NXT &mt LALT MINUS  &kp EQUAL &kp LBKT &kp RBKT &kp BSLH     &trans &trans &trans &trans &kp RALT       &bt BT_CLR
+   &bt BT_PRV &mt LSHFT UNDER &kp PLUS  &kp LBRC &kp RBRC &kp PIPE     &trans &trans &trans &trans &kp LSHFT      &reset 
+   &trans     &mt LCTL F1     &kp F2    &kp F3   &kp F4   &kp F5       &kp F6 &kp F7 &kp F8 &kp F9 &mt RCTL F10   &bootloader 
                                    &kp LGUI &trans &cp C_VOL_DN      &kp BSPC &trans &kp RGUI
                         >;
                 };
