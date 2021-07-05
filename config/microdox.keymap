@@ -59,26 +59,34 @@
                 compatible = "zmk,keymap";
                 default_layer {
                         bindings = <
-   &mt LALT Q  &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &mt RALT P
-   &mt LSHFT A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &mt RSHFT SEMI
-   &mt LCTL Z  &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &mt RCTL FSLH
-          &kp LGUI &mo 1 &kp SPACE &kp BSPC &mo 2 &kp RC(RS(V))
+   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P
+   &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI
+   &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH
+          &kp LGUI &mo 1 &kp LSHFT &kp SPACE &mo 2 &kp RALT
                         >;
                 };
                 nav_layer {
                         bindings = <
-   &mt LALT N1    &kp N2   &kp N3     &kp N4     &kp N5         &kp N6    &kp N7        &kp N8     &kp N9    &mt RALT N0
-   &mt LSHFT EXCL &kp AT   &kp HASH   &kp DLLR   &kp PRCNT      &kp CARET &kp AMPERSAND &kp ASTRK  &kp LPAR  &mt RSHFT RPAR
-   &mt LCTL ESC   &kp TAB  &kp CAPS   &kp TILDE  &kp GRAVE      &kp LEFT  &kp UP        &kp DOWN   &kp RIGHT &kp RCTL
-                            &kp LGUI  &trans     &kp SPACE      &kp C_VOL_UP   &trans   &kp RGUI
+   &bt BT_CLR   &trans      &kp ESC  &kp TILDE &trans     &kp TAB  &kp HOME &kp UP   &kp END   &kp DEL
+   &bt BT_SEL 0 &kp K_CMENU &kp RALT &kp LCTRL &mo 3      &kp FSLH &kp LEFT &kp DOWN &kp RIGHT &kp BSPC
+   &bt BT_SEL 1 &trans      &trans   &trans    &trans     &kp BSLH &kp RET  &trans   &trans    &trans
+                            &trans   &trans    &trans     &trans   &trans   &trans
                         >;
                 };
                 sym_layer {
                         bindings = <
-   &mt LALT MINUS  &kp EQUAL &kp LBKT &kp RBKT &kp BSLH     &bt BT_PRV &bt BT_NXT     &trans     &trans &kp RALT 
-   &mt LSHFT UNDER &kp PLUS  &kp LBRC &kp RBRC &kp PIPE     &bt reset  &bt bootloader &bt BT_CLR &trans &kp LSHFT
-   &mt LCTL F1     &kp F2    &kp F3   &kp F4   &kp F5       &kp F6     &kp F7         &kp F8     &kp F9 &mt RCTL F10
-                             &kp LGUI &trans &kp C_VOL_DN   &kp BSPC   &trans         &kp RGUI
+   &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR
+   &trans    &trans    &trans    &trans    &trans      &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp PIPE
+   &trans    &trans    &trans    &trans    &trans      &trans    &trans    &trans          &trans   &kp BSLH
+                       &kp LGUI  &trans    &kp SPACE   &kp RET   &trans    &kp RALT
+                        >;
+                };
+                num_layer {
+                        bindings = <
+   &trans &trans &trans &trans &trans    &kp A  &kp N7  &kp N8 &kp N9 &kp D
+   &trans &trans &trans &trans &trans    &kp B  &kp N4  &kp N5 &kp N6 &kp E
+   &trans &trans &trans &trans &trans    &kp C  &kp N1  &kp N2 &kp N3 &kp F
+                 &trans &trans &trans    &kp N0 &kp DOT &trans
                         >;
                 };
         };
