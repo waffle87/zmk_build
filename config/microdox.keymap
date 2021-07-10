@@ -70,7 +70,7 @@
    &mt LALT N1    &kp N2   &kp N3     &kp N4     &kp N5         &kp N6    &kp N7        &kp N8     &kp N9    &mt RALT N0
    &mt LSHFT EXCL &kp AT   &kp HASH   &kp DLLR   &kp PRCNT      &kp CARET &kp AMPERSAND &kp ASTRK  &kp LPAR  &mt RSHFT RPAR
    &mt LCTL ESC   &kp TAB  &kp CAPS   &kp TILDE  &kp GRAVE      &kp LEFT  &kp UP        &kp DOWN   &kp RIGHT &kp RCTL
-                            &kp LGUI   &trans    &kp SPACE      &kp C_VOL_UP   &trans   &kp RGUI
+                            &kp LGUI   &trans    &kp SPACE      &kp C_VOL_UP   &trans   &kp C_BRI_UP
                         >;
                 };
                 sym_layer {
@@ -78,7 +78,7 @@
    &mt LALT MINUS  &kp EQUAL &kp LBKT &kp RBKT &kp BSLH     &bt BT_PRV &bt BT_NXT  &bt BT_CLR &trans &kp RALT
    &mt LSHFT UNDER &kp PLUS  &kp LBRC &kp RBRC &kp PIPE     &reset     &bootloader &trans     &trans &kp LSHFT
    &mt LCTL F1     &kp F2    &kp F3   &kp F4   &kp F5       &kp F6     &kp F7      &kp F8     &kp F9 &mt RCTL F10
-                       &kp LGUI  &trans    &kp C_VOL_DN   &kp BSPC   &trans    &kp RGUI
+                       &kp C_BRI_DN  &trans    &kp C_VOL_DN   &kp BSPC   &trans    &kp RGUI
                         >;
                 };
         };
