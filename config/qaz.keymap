@@ -10,12 +10,10 @@
 
 &mt {
     quick_tap_ms = <150>;
-    retro-tap;
 };
 
 &lt {
     quick_tap_ms = <110>;
-    retro-tap;
 };
 
  / {
