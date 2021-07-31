@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/ext_power.h> 
 
 &mt {
     quick_tap_ms = <150>;
@@ -70,7 +71,7 @@
     &mt LALT Q  &kp W   &kp E   &kp R   &kp T  &kp Y   &kp U   &kp I     &kp O      &mt RALT P
     &mt LSHFT A   &kp S   &kp D  &kp F    &kp G  &kp H   &kp J   &kp K &kp L &mt RSHFT SEMI
     &mt LCTL Z      &kp X   &kp C   &kp V   &kp B  &kp N   &kp M   &kp COMMA  &mt RCTL DOT
-    &kp C_VOL_DN  &trans   &kp LGUI       &lt LOWER SPACE    &lt RAISE BSPC   &kp RC(RS(V))   &trans    &kp C_VOL_UP
+    &kp C_VOL_DN  &kp C_BRI_DEC   &kp LGUI       &lt LOWER SPACE    &lt RAISE BSPC   &kp RC(RS(V))   &kp C_BRI_INC    &kp C_VOL_UP
             >;
         };
         lower {
@@ -87,7 +88,7 @@
     &kp MINUS &kp EQUAL &kp LBKT &kp RBKT       &kp BSLH &none &none       &none       &none     &none
     &kp UNDER     &kp PLUS     &kp LBRC     &kp RBRC      &kp PIPE &none &none    &none    &none &none
     &none                 &none      &none       &none &none &none       &none        &none     &none
-    &bootloader      &reset      &bt BT_CLR         &kp SEMI        &trans             &none      &none    &none
+    &bootloader      &reset      &bt BT_CLR         &kp SEMI        &trans             &none      &bt BT_PRV    &bt BT_NXT
             >;
         };
     };
