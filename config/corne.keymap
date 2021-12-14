@@ -37,7 +37,7 @@
         };
         combo_dquote {
             timeout-ms = <50>;
-            key-positions = <27 31>;
+            key-positions = <27 32>;
             bindings = <&kp DQT>;
         };
         combo_col {
@@ -54,6 +54,36 @@
             timeout-ms = <50>;
             key-positions = <16 19>;
             bindings = <&kp MINUS>; 
+        };
+        combo_lbrc {
+          timeout-ms = <50>;
+          key-positions = <3 4>;
+          bindings = <&kp LBRC>;
+        };
+        combo_rbrc {
+          timeout-ms = <50>;
+          key-positions = <4 5>;
+          bindings = <&kp RBRC>;
+        };
+        combo_lbkt {
+          timeout-ms = <50>;
+          key-positions = <6 7>;
+          bindings = <&kp LBKT>;
+        };
+        combo_rbkt {
+          timeout-ms = <50>;
+          key-positions = <7 8>;
+          bindings = <&kp RBKT>;
+        };
+        combo_eql {
+          timeout-ms = <50>;
+          key-positions = <15 20>;
+          bindings = <&kp KP_EQUAL>;
+        };
+        combo_plus {
+          timeout-ms = <50>;
+          key-positions = <14 21>;
+          bindings = <&kp KP_PLUS>;
         };
     };
 };
@@ -80,10 +110,10 @@
                 };
                 raise_layer {
                         bindings = <
-   &bt BT_NXT &mt LALT MINUS  &kp EQUAL &kp LBKT &kp RBKT &kp BSLH     &trans &trans &trans &trans &kp RALT       &bt BT_CLR
-   &bt BT_PRV &mt LSHFT UNDER &kp PLUS  &kp LBRC &kp RBRC &kp PIPE     &trans &trans &trans &trans &kp LSHFT      &reset 
-   &trans     &mt LCTL F1     &kp F2    &kp F3   &kp F4   &kp F5       &kp F6 &kp F7 &kp F8 &kp F9 &mt RCTL F10   &bootloader 
-                                   &kp LGUI &trans &cp C_VOL_DN      &kp BSPC &trans &kp RGUI
+   &bt BT_NXT &trans  &trans &trans &trans &kp BSLH     &trans &trans &trans &trans &trans  &bt BT_CLR
+   &bt BT_PRV &trans  &trans &trans &trans &kp PIPE     &trans &trans &trans &trans &trans  &reset 
+   &trans     &kp F1  &kp F2 &kp F3 &kp F4 &kp F5       &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &bootloader 
+                      &kp LGUI &trans &cp C_VOL_DN      &kp BSPC &trans &kp RGUI
                         >;
                 };
         };
