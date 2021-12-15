@@ -18,41 +18,72 @@
         compatible = "zmk,combos";
         combo_ent {
             timeout-ms = <50>;
-            key-positions = <3 6>;
+            key-positions = <4 7>;
             bindings = <&kp ENTER>;
         };
         combo_quote {
             timeout-ms = <50>;
-            key-positions = <14 15>;
+            key-positions = <17 18>;
             bindings = <&kp SQT>;
         };
         combo_ques {
             timeout-ms = <50>;
-            key-positions = <23 26>;
+            key-positions = <28 31>;
             bindings = <&kp QUESTION>;
         };
         combo_dquote {
             timeout-ms = <50>;
-            key-positions = <22 26>;
+            key-positions = <27 32>;
             bindings = <&kp DQT>;
         };
         combo_col {
             timeout-ms = <50>;
-            key-positions = <4 5>;
+            key-positions = <5 6>;
             bindings = <&kp COLON>;
         };
         combo_unds {
             timeout-ms = <50>;
-            key-positions = <24 25>;
+            key-positions = <29 30>;
             bindings = <&kp UNDER>;
         };
         combo_mins {
             timeout-ms = <50>;
-            key-positions = <13 16>;
+            key-positions = <16 19>;
             bindings = <&kp MINUS>; 
+        };
+        combo_lbrc {
+          timeout-ms = <50>;
+          key-positions = <3 4>;
+          bindings = <&kp LBRC>;
+        };
+        combo_rbrc {
+          timeout-ms = <50>;
+          key-positions = <4 5>;
+          bindings = <&kp RBRC>;
+        };
+        combo_lbkt {
+          timeout-ms = <50>;
+          key-positions = <6 7>;
+          bindings = <&kp LBKT>;
+        };
+        combo_rbkt {
+          timeout-ms = <50>;
+          key-positions = <7 8>;
+          bindings = <&kp RBKT>;
+        };
+        combo_eql {
+          timeout-ms = <50>;
+          key-positions = <15 20>;
+          bindings = <&kp KP_EQUAL>;
+        };
+        combo_plus {
+          timeout-ms = <50>;
+          key-positions = <14 21>;
+          bindings = <&kp KP_PLUS>;
         };
     };
 };
+
 
 / {
         keymap {
