@@ -60,6 +60,31 @@
             key-positions = <2 3>;
             bindings = <&kp LBRC>;
         };
+        combo_rbrc {
+            timeout-ms = <50>;
+            key-positions = <3 4>;
+            bindings = <&kp RBRC>;
+        };
+        combo_lbkt {
+            timeout-ms = <50>;
+            key-positions = <5 6>;
+            bindings = <&kp LBKT>;
+        };
+        combo_rbkt {
+            timeout-ms = <50>;
+            key-positions = <6 7>;
+            bindings = <&kp RBKT>;
+        };
+        combo_eql {
+            timeout-ms = <50>;
+            key-positions = <12 17>;
+            bindings = <&kp EQUAL>;
+        };
+        combo_plus {
+            timeout-ms = <50>;
+            key-positions = <11 18>;
+            bindings = <&kp PLUS>;
+        };
     };
 };
 
