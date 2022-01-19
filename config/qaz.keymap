@@ -55,6 +55,11 @@
             key-positions = <13 16>;
             bindings = <&kp MINUS>; 
         };
+        combo_lbrc {
+            timeout-ms = <50>;
+            key-positions = <2 3>;
+            bindings = <&kp LBRC>;
+        };
     };
 };
 
