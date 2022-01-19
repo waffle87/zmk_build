@@ -58,10 +58,6 @@
     };
 };
 
-#define QWERTY 0
-#define LOWER 1
-#define RAISE 2
-
 / {
     keymap {
         compatible = "zmk,keymap";
@@ -71,7 +67,7 @@
     &mt LALT Q  &kp W   &kp E   &kp R   &kp T  &kp Y   &kp U   &kp I     &kp O      &mt RALT P
     &mt LSHFT A   &kp S   &kp D  &kp F    &kp G  &kp H   &kp J   &kp K &kp L &mt RSHFT SEMI
     &mt LCTL Z      &kp X   &kp C   &kp V   &kp B  &kp N   &kp M   &kp COMMA  &mt RCTL DOT
-    &kp C_VOL_DN  &kp C_BRI_DEC   &kp LGUI       &lt LOWER SPACE    &lt RAISE BSPC   &kp RC(RS(V))   &kp C_BRI_INC    &kp C_VOL_UP
+    &kp C_VOL_DN  &kp C_BRI_DEC   &kp LGUI       &lt 1 SPACE    &kp BSPC   &kp RC(RS(V))   &kp C_BRI_INC    &kp C_VOL_UP
             >;
         };
         lower {
