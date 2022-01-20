@@ -93,18 +93,18 @@
         compatible = "zmk,keymap";
         qwerty {
             bindings = <
-    &mt LALT Q  &kp W   &kp E   &kp R   &kp T  &kp Y   &kp U   &kp I     &kp O      &mt RALT P
-    &mt LSHFT A   &kp S   &kp D  &kp F    &kp G  &kp H   &kp J   &kp K &kp L &mt RSHFT SEMI
-    &mt LCTL Z      &kp X   &kp C   &kp V   &kp B  &kp N   &kp M   &kp COMMA  &mt RCTL DOT
-    &kp C_VOL_DN  &kp C_PREV   &kp LGUI       &lt 1 SPACE    &kp BSPC   &kp RC(RS(V))   &kp C_NEXT    &kp C_VOL_UP
+    &mt LALT Q  &kp W  &kp E &kp R &kp T &kp Y &kp U &kp I     &kp O       &mt RALT P
+    &mt LSHFT A &kp S  &kp D &kp F &kp G &kp H &kp J &kp K     &kp L       &mt RSHFT SEMI
+    &mt LCTL Z  &kp X  &kp C &kp V &kp B &kp N &kp M &kp COMMA &mt RCTL DOT
+    &kp C_VOL_DN &kp C_PREV &kp LGUI &lt 1 SPACE &kp BSPC &kp RC(RS(V)) &kp C_NEXT &kp C_VOL_UP
             >;
         };
         lower {
             bindings = <
-    &mt LALT N1     &kp N2     &kp N3     &kp N4     &kp N5 &kp N6 &kp N7     &kp N8      &kp N9    &mt RALT N0
-    &mt LSHFT EXCL    &kp AT     &kp HASH     &kp DLLR     &kp PRCNT &kp CARET &kp AMPERSAND     &kp ASTRK      &kp LPAR &mt RSHFT RPAR
-    &mt LCTL ESC        &kp TAB      &kp CAPS    &kp TILDE  &kp GRAVE  &kp LEFT      &kp UP       &kp DOWN     &mt RCTL RIGHT
-    &kp C_BRI_DEC &trans    &kp LGUI         &trans        &kp FSLH             &kp RGUI     &trans    &kp C_BRI_INC
+    &mt LALT N1    &kp N2  &kp N3   &kp N4    &kp N5    &kp N6    &kp N7        &kp N8    &kp N9        &mt RALT N0
+    &mt LSHFT EXCL &kp AT  &kp HASH &kp DLLR  &kp PRCNT &kp CARET &kp AMPERSAND &kp ASTRK &kp LPAR      &mt RSHFT RPAR
+    &mt LCTL ESC   &kp TAB &kp CAPS &kp TILDE &kp GRAVE &kp LEFT  &kp UP        &kp DOWN  &mt RCTL RIGHT
+    &kp C_BRI_DEC &reset &bootloader &trans &trans &trans &trans &kp C_BRI_INC
             >;
         };
     };
