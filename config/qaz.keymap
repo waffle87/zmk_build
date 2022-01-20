@@ -104,7 +104,7 @@
     &mt LALT N1    &kp N2  &kp N3   &kp N4    &kp N5    &kp N6    &kp N7        &kp N8    &kp N9        &mt RALT N0
     &mt LSHFT EXCL &kp AT  &kp HASH &kp DLLR  &kp PRCNT &kp CARET &kp AMPERSAND &kp ASTRK &kp LPAR      &mt RSHFT RPAR
     &mt LCTL ESC   &kp TAB &kp CAPS &kp TILDE &kp GRAVE &kp LEFT  &kp DOWN      &kp UP    &mt RCTL RIGHT
-    &kp C_BRI_DEC &reset &bootloader &trans &trans &trans &trans &kp C_BRI_INC
+    &kp C_BRI_DEC &reset &bootloader &trans &kp FSLH &trans &trans &kp C_BRI_INC
             >;
         };
     };
