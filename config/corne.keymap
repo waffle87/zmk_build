@@ -8,10 +8,6 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-/*&mt {
-    tapping_term_ms = <420>;
-};*/
-
 &mt {
     quick_tap_ms = <150>;
     retro-tap;
@@ -84,6 +80,11 @@
           timeout-ms = <50>;
           key-positions = <14 21>;
           bindings = <&kp KP_PLUS>;
+        };
+        combo_bsls {
+            timeout-ms = <50>;
+            key-positions = <3 8>;
+            bindings = <&kp BSLH>;
         };
     };
 };
