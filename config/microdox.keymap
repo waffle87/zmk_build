@@ -1,6 +1,5 @@
 /*
  * Copyright (c) 2020 The ZMK Contributors
- *
  * SPDX-License-Identifier: MIT
  */
 
@@ -9,108 +8,48 @@
 #include <dt-bindings/zmk/bt.h>
 
 &mt {
-    quick_tap_ms = <150>;
-    retro-tap;
+	quick_tap_ms = <150>;
+	retro-tap;
 };
-
- / {
-    combos {
-        compatible = "zmk,combos";
-        combo_ent {
-            timeout-ms = <50>;
-            key-positions = <4 7>;
-            bindings = <&kp ENTER>;
-        };
-        combo_quote {
-            timeout-ms = <50>;
-            key-positions = <17 18>;
-            bindings = <&kp SQT>;
-        };
-        combo_ques {
-            timeout-ms = <50>;
-            key-positions = <28 31>;
-            bindings = <&kp QUESTION>;
-        };
-        combo_dquote {
-            timeout-ms = <50>;
-            key-positions = <27 32>;
-            bindings = <&kp DQT>;
-        };
-        combo_col {
-            timeout-ms = <50>;
-            key-positions = <5 6>;
-            bindings = <&kp COLON>;
-        };
-        combo_unds {
-            timeout-ms = <50>;
-            key-positions = <29 30>;
-            bindings = <&kp UNDER>;
-        };
-        combo_mins {
-            timeout-ms = <50>;
-            key-positions = <16 19>;
-            bindings = <&kp MINUS>; 
-        };
-        combo_lbrc {
-          timeout-ms = <50>;
-          key-positions = <3 4>;
-          bindings = <&kp LBRC>;
-        };
-        combo_rbrc {
-          timeout-ms = <50>;
-          key-positions = <4 5>;
-          bindings = <&kp RBRC>;
-        };
-        combo_lbkt {
-          timeout-ms = <50>;
-          key-positions = <6 7>;
-          bindings = <&kp LBKT>;
-        };
-        combo_rbkt {
-          timeout-ms = <50>;
-          key-positions = <7 8>;
-          bindings = <&kp RBKT>;
-        };
-        combo_eql {
-          timeout-ms = <50>;
-          key-positions = <15 20>;
-          bindings = <&kp KP_EQUAL>;
-        };
-        combo_plus {
-          timeout-ms = <50>;
-          key-positions = <14 21>;
-          bindings = <&kp KP_PLUS>;
-        };
-    };
-};
-
 
 / {
-        keymap {
-                compatible = "zmk,keymap";
-                default_layer {
-                        bindings = <
-   &mt LALT Q  &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &mt RALT P
-   &mt LSHFT A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &mt RSHFT SEMI
-   &mt LCTL Z  &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &mt RCTL FSLH
-          &kp LGUI &mo 1 &kp SPACE &kp BSPC &mo 2 &kp RC(RS(V))
-                        >;
-                };
-                nav_layer {
-                        bindings = <
-   &mt LALT N1    &kp N2   &kp N3     &kp N4     &kp N5         &kp N6    &kp N7        &kp N8     &kp N9    &mt RALT N0
-   &mt LSHFT EXCL &kp AT   &kp HASH   &kp DLLR   &kp PRCNT      &kp CARET &kp AMPERSAND &kp ASTRK  &kp LPAR  &mt RSHFT RPAR
-   &mt LCTL ESC   &kp TAB  &kp CAPS   &kp TILDE  &kp GRAVE      &kp LEFT  &kp UP        &kp DOWN   &kp RIGHT &kp RCTL
-                            &kp LGUI   &trans    &kp SPACE      &kp C_VOL_UP   &trans   &kp C_BRI_UP
-                        >;
-                };
-                sym_layer {
-                        bindings = <
-   &mt LALT MINUS  &kp EQUAL &kp LBKT &kp RBKT &kp BSLH     &bt BT_PRV &bt BT_NXT  &bt BT_CLR &trans &kp RALT
-   &mt LSHFT UNDER &kp PLUS  &kp LBRC &kp RBRC &kp PIPE     &reset     &bootloader &trans     &trans &kp LSHFT
-   &mt LCTL F1     &kp F2    &kp F3   &kp F4   &kp F5       &kp F6     &kp F7      &kp F8     &kp F9 &mt RCTL F10
-                       &kp C_BRI_DN  &trans    &kp C_VOL_DN   &kp BSPC   &trans    &kp RGUI
-                        >;
-                };
-        };
+	combos {
+		#include "combos.h"
+		COMBO(ENTR, &kp RET, 4 7)
+		COMBO(QUOT, &kp SQT, 17 18)
+		COMBO(DQUO, &kp DQT, 27 32)
+		COMBO(LBRC, &kp LBRC, 3 4)
+		COMBO(RBRC, &kp RBRC, 4 5)
+		COMBO(LBKT, &kp LBKT, 6 7)
+		COMBO(RBKT, &kp RBKT, 7 8)
+		COMBO(BKSL, &kp BSLH, 3 8)
+		COMBO(COLN, &kp COLON, 5 6)
+		COMBO(PLUS, &kp PLUS, 14 21)
+		COMBO(QUES, &kp QMARK, 28 31)
+		COMBO(UNDS, &kp UNDER, 29 30)
+		COMBO(MINS, &kp MINUS, 16 19)
+		COMBO(EQAL, &kp EQUAL, 15 20)
+	};
+};
+
+/ {
+  keymap {
+    compatible = "zmk,keymap";
+      base {
+        bindings = <
+					&mt LALT Q  &kp W &kp E &kp R &kp T   	&kp Y &kp U  &kp I     &kp O   &mt RALT P
+					&mt LSHFT A &kp S &kp D &kp F &kp G   	&kp H &kp J  &kp K     &kp L   &mt RSHFT SEMI
+					&mt LCTL Z  &kp X &kp C &kp V &kp B   	&kp N &kp M  &kp COMMA &kp DOT &mt RCTL FSLH
+							&kp LGUI &mo 1 &kp SPACE &kp BSPC 	&mo 2 &kp RC(RS(V))
+        >;
+      };
+      num {
+        bindings = <
+					&mt LALT N1    &kp N2   &kp N3     &kp N4     &kp N5        &kp N6    &kp N7        &kp N8     &kp N9    &mt RALT N0
+					&mt LSHFT EXCL &kp AT   &kp HASH   &kp DLLR   &kp PRCNT			&kp CARET &kp AMPERSAND &kp ASTRK  &kp LPAR  &mt RSHFT RPAR
+					&mt LCTL ESC   &kp TAB  &kp CAPS   &kp TILDE  &kp GRAVE     &kp LEFT  &kp UP        &kp DOWN   &kp RIGHT &kp RCTL
+                            				 &kp C_PREV &trans &kp C_NEXT     &kp C_VOL_DN &trans &kp C_VOL_UP
+        >;
+      };
+  };
 };
