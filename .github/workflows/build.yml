@@ -72,7 +72,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: ${{ steps.variables.outputs.artifact-name }}
-          path: |
-            build/zephyr/zmk.hex
-            build/zephyr/zmk.uf2
+          path: build/zephyr/zmk.uf2
         continue-on-error: true
