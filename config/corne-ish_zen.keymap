@@ -1,20 +1,58 @@
-/*
- * Copyright (c) 2020 The ZMK Contributors
- * SPDX-License-Identifier: MIT
- */
+// Copyright 2022 jack (@waffle87)
+// SPDX-License-Identifier: MIT
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include "util.h"
 
-&mt {
-	quick_tap_ms = <150>;
-	retro-tap;
+&caps_word {
+    continue-list = <UNDER MINUS BSPC>;
 };
 
 / {
-	combos {
-		#include "combos.h"
+  keymap {
+    compatible = "zmk,keymap";
+      base {
+        bindings = <
+					&trans &kp  Q &kp W &kp E &kp R  &kp T      &kp Y &kp  U &kp I     &kp O   &kp P    &trans
+          &trans HRML(A,    S,    D,    F) &kp G      &kp H HRMR(J,    K,        L,  SEMI)    &trans
+					&trans &kp  Z &kp X &kp C &kp V  &kp B      &kp N &kp  M &kp COMMA &kp DOT &kp FSLH &trans
+									        &trans &mo 1 &kp SPACE      &kp BSPC &mo 2 &kp RC(RS(V))
+        >;
+      };
+      num {
+        bindings = <
+					&trans &kp  N1   &kp N2  &kp N3   &kp N4    &kp N5         &kp N6    &kp  N7   &kp N8 &kp N9 &kp N0     &trans
+          &trans HRML(EXCL,    AT,     HASH,    DLLR) &kp PRCNT      &kp CARET HRMR(AMPS,    ASTRK, LPAR,  RPAR)  &trans
+					&trans &kp  ESC  &kp TAB &kp CAPS &kp TILDE &kp GRAVE      &kp LEFT  &kp  DOWN &kp UP &kp RIGHT  &trans &trans
+                                            &trans &trans &trans     &kp C_VOL_UP &trans &trans
+        >;
+      };
+      sym {
+        bindings = <
+          &trans &caps_word &trans &trans &trans &trans      &kp C_PREV &kp C_PLAY &kp C_NEXT &bt BT_CLR &bootloader &trans
+          &trans &trans     &trans &trans &trans &trans      &trans     &trans     &trans      &bt BT_PRV &bt BT_NXT  &trans
+          &trans &kp F1     &kp F2 &kp F3 &kp F4 &kp F5      &kp F6     &kp F7     &kp F8      &kp F9     &kp F10     &trans
+                            &trans &trans &kp C_VOL_DN       &trans &trans &trans
+        >;
+      };
+  };
+
+  behaviors {
+    hm: homerow_mods {
+        compatible = "zmk,behavior-hold-tap";
+        label = "HOMEROW_MODS";
+        #binding-cells = <2>;
+        tapping-term-ms = <150>;
+        quick_tap_ms = <0>;
+        flavor = "tap-preferred";
+        bindings = <&kp>, <&kp>;
+    };
+  };
+
+  combos {
+    compatible = "zmk,combos";
 		COMBO(ENTR, &kp RET, 4 7)
 		COMBO(QUOT, &kp SQT, 17 18)
 		COMBO(DQUO, &kp DQT, 27 32)
@@ -29,27 +67,5 @@
 		COMBO(UNDS, &kp UNDER, 29 30)
 		COMBO(MINS, &kp MINUS, 16 19)
 		COMBO(EQAL, &kp EQUAL, 15 20)
-	};
-};
-
-/ {
-  keymap {
-    compatible = "zmk,keymap";
-      base {
-        bindings = <
-		&kp C_NEXT  &mt LALT Q   &kp W &kp E &kp R &kp T         &kp Y &kp U  &kp I     &kp O   &mt RALT P      &kp C_VOL_UP
-		&kp C_PLAY  &mt LSHFT A  &kp S &kp D &kp F &kp G         &kp H &kp J  &kp K     &kp L   &mt LSHFT SEMI  &kp C_MUTE
-		&kp C_PREV  &mt LCTL Z   &kp X &kp C &kp V &kp B         &kp N &kp M  &kp COMMA &kp DOT &mt RCTL FSLH   &kp C_VOL_DN
-				    &kp LGUI &mo 1 &kp SPACE         &kp BSPC &trans &kp RC(RS(V))
-        >;
-      };
-      num {
-        bindings = <
-		&bt BT_CLR   &mt LALT N1    &kp N2   &kp N3     &kp N4     &kp N5         &kp N6    &kp N7        &kp N8     &kp N9    &mt RALT N0    &trans
-		&bt BT_SEL 0 &mt LSHFT EXCL &kp AT   &kp HASH   &kp DLLR   &kp PRCNT      &kp CARET &kp AMPERSAND &kp ASTRK  &kp LPAR  &mt RSHFT RPAR &trans
-		&bt BT_SEL 1 &mt LCTL ESC   &kp TAB  &kp CAPS   &kp TILDE  &kp GRAVE      &kp LEFT  &kp DOWN      &kp UP     &kp RIGHT &kp RCTL       &trans
-								&trans &trans &trans     &trans &trans &trans
-        >;
-      };
   };
 };
