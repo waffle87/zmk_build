@@ -3,6 +3,7 @@ ZSDK_VERSION=0.13.2
 ZEN_BRANCH=Board-Corne-ish-Zen-dedicated-work-queue
 CONFIG_DIR=~/waffle_git/zmk-build/config
 ZMK_DIR=~/waffle_git/zmk
+UF2=~/*.uf2
 
 update() {
   (cd ${ZMK_DIR} ; git pull ; west update)
@@ -10,6 +11,12 @@ update() {
   chmod +x zephyr-toolchain-arm-${ZSDK_VERSION}-linux-x86_64-setup.run
   ./zephyr-toolchain-arm-${ZSDK_VERSION}-linux-x86_64-setup.run -- -d ~/.local/zephyr-sdk-${ZSDK_VERSION}
   rm zephyr-toolchain-arm-${ZSDK_VERSION}-linux-x86_64-setup.run
+}
+
+test_uf2() {
+  if test -f ${UF2}; then
+    rm ${UF2}
+  fi
 }
 
 read -p "update? (y/n) " -n 1 -r
@@ -26,6 +33,7 @@ do
   case $opt in
     "corne")
       echo "building corne firmware..."
+      test_uf2
       (cd ${ZMK_DIR}
       if [ $(git branch --show-current) == "${ZEN_BRANCH}"]; then
         git checkout main
@@ -41,6 +49,7 @@ do
       ;;
     "corne-ish zen")
       echo "building corne-ish zen firmware..."
+      test_uf2
       (cd ${ZMK_DIR}
       if [[ $(git branch --show-current) = "main" ]]; then
         git checkout ${ZEN_BRANCH}
@@ -49,7 +58,7 @@ do
       (cd ${ZMK_DIR}/app
       west build -p -b corne-ish_zen_left -- -DZMK_CONFIG="${CONFIG_DIR}"
       cp ${ZMK_DIR}/app/build/zephyr/zmk.uf2 ~/corne-ish_zen_left.uf2
-      west build -p -b corne-ish_zen_left -- -DZMK_CONFIG="${CONFIG_DIR}"
+      west build -p -b corne-ish_zen_right -- -DZMK_CONFIG="${CONFIG_DIR}"
       cp ${ZMK_DIR}/app/build/zephyr/zmk.uf2 ~/corne-ish_zen_right.uf2
       )
       break
@@ -57,6 +66,6 @@ do
     "quit")
       break
       ;;
-    *) echo "invalid option $REPLY";;
+    *) echo "invalid option: $REPLY";;
   esac
 done
