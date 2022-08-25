@@ -50,7 +50,7 @@
         compatible = "zmk,behavior-tap-dance";
         label = "PLAY_NEXT_PREV";
         #binding-cells = <0>;
-        tapping-term-ms = <120>;
+        tapping-term-ms = <220>;
         bindings = <&kp C_PLAY>, <&kp C_NEXT>, <&kp C_PREV>;
     };
 
@@ -58,7 +58,7 @@
         compatible = "zmk,behavior-tap-dance";
         label = "CURLY_BRACKET";
         #binding-cells = <0>;
-        tapping-term-ms = <120>;
+        tapping-term-ms = <200>;
         bindings = <&kp LBRC>, <&kp RBRC>;
     };
 
@@ -66,7 +66,7 @@
         compatible = "zmk,behavior-tap-dance";
         label = "SQUARE_BRACKET";
         #binding-cells = <0>;
-        tapping-term-ms = <120>;
+        tapping-term-ms = <200>;
         bindings = <&kp LBKT>, <&kp RBKT>;
     };
 
@@ -74,7 +74,7 @@
         compatible = "zmk,behavior-tap-dance";
         label = "BACKSLASH_PIPE";
         #binding-cells = <0>;
-        tapping-term-ms = <120>;
+        tapping-term-ms = <200>;
         bindings = <&kp BSLH>, <&kp PIPE>;
     };
   };
@@ -90,18 +90,18 @@
 
   combos {
     compatible = "zmk,combos";
-      COMBO(ENTR, &kp RET, 4 7)
-      COMBO(QUOT, &kp SQT, 17 18)
-      COMBO(DQUO, &kp DQT, 27 32)
-      COMBO(LBRC, &cbrkt, 3 4)
-      COMBO(RBKT, &sbrkt, 7 8)
-      COMBO(BKSL, &bslspipe, 3 8)
-      COMBO(COLN, &kp COLON, 5 6)
-      COMBO(PLUS, &kp PLUS, 14 21)
-      COMBO(QUES, &kp QMARK, 28 31)
-      COMBO(UNDS, &kp UNDER, 29 30)
-      COMBO(MINS, &kp MINUS, 2 9)
-      COMBO(EQAL, &kp EQUAL, 15 20)
-      COMBO(CAPW, &caps_word, 16 19)
+      COMBO(entr, &kp RET, 4 7)
+      COMBO(quot, &kp SQT, 17 18)
+      COMBO(dquo, &kp DQT, 27 32)
+      COMBO(cbkt, &cbrkt, 3 4)
+      COMBO(sbkt, &sbrkt, 7 8)
+      COMBO(bspp, &bslspipe, 3 8)
+      COMBO(coln, &kp COLON, 5 6)
+      COMBO(plus, &kp PLUS, 14 21)
+      COMBO(ques, &kp QMARK, 28 31)
+      COMBO(unds, &kp UNDER, 29 30)
+      COMBO(mins, &kp MINUS, 2 9)
+      COMBO(eqal, &kp EQUAL, 15 20)
+      COMBO(capw, &caps_word, 16 19)
   };
 };
