@@ -14,7 +14,7 @@
           &trans &kp  Q &kp W &kp E &kp R  &kp T      &kp Y &kp  U &kp I     &kp O   &kp P    &trans
           &trans HRML(A,    S,    D,    F) &kp G      &kp H HRMR(J,    K,        L,  SEMI)    &trans
           &trans &kp  Z &kp X &kp C &kp V  &kp B      &kp N &kp  M &kp COMMA &kp DOT &kp FSLH &trans
-                          &trans &mo 1 &kp SPACE      &kp BSPC &mo 2 &kp RC(RS(V))
+                          &updir &esclwr &kp SPACE      &kp BSPC &pstrse &pnp
         >;
       };
       num {
@@ -44,6 +44,39 @@
         quick_tap_ms = <0>;
         flavor = "tap-preferred";
         bindings = <&kp>, <&kp>;
+    };
+
+    esclwr: escape_lower {
+        compatible = "zmk,behavior-tap-dance";
+        label = "ESCAPE_LOWER";
+        #binding-cells = <0>;
+        tapping-term-ms = <120>;
+        bindings = <&kp ESC>, <&mo 1>;
+    };
+
+    pstrse: paste_raise {
+        compatible = "zmk,behavior-tap-dance";
+        label = "PASTE_RAISE";
+        #binding-cells = <0>;
+        tapping-term-ms = <120>;
+        bindings = <&kp RC(RS(V))>, <&mo 2>;
+    };
+
+    pnp: play_next_prev {
+        compatible = "zmk,behavior-tap-dance";
+        label = "PLAY_NEXT_PREV";
+        #binding-cells = <0>;
+        tapping-term-ms = <120>;
+        bindings = <&kp C_PLAY>, <&kp C_NEXT>, <&kp C_PREV>;
+    };
+  };
+
+  macros {
+    updir: updir {
+      label = "UP_DIR";
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings = <&macro_tap &kp DOT &kp DOT &kp FSLH>;
     };
   };
 
