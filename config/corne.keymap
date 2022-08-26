@@ -11,26 +11,26 @@
     compatible = "zmk,keymap";
       base {
         bindings = <
-          &trans &kp  Q &kp W &kp E &kp R  &kp T      &kp Y &kp  U &kp I     &kp O   &kp P    &trans
-          &trans HRML(A,    S,    D,    F) &kp G      &kp H HRMR(J,    K,        L,  SEMI)    &trans
-          &trans &kp  Z &kp X &kp C &kp V  &kp B      &kp N &kp  M &kp COMMA &kp DOT &kp FSLH &trans
-                          &updir &lt 1 ESC &kp SPACE      &kp BSPC &lt 2 RS(RC(V)) &pnp
+          &none &kp  Q &kp W &kp E &kp R  &kp T      &kp Y &kp  U &kp I     &kp O   &kp P     &none
+          &none HRML(A,    S,    D,    F) &kp G      &kp H HRMR(J,    K,        L,      SEMI) &none
+          &none &kp  Z &kp X &kp C &kp V  &kp B      &kp N &kp  M &kp COMMA &kp DOT &kp FSLH  &none
+                     &updir &lt 1 ESC &kp SPACE      &kp BSPC &lt 2 RS(RC(V)) &pnp
         >;
       };
       num {
         bindings = <
-          &trans &kp  N1   &kp N2  &kp N3   &kp N4    &kp N5         &kp N6    &kp  N7   &kp N8 &kp N9 &kp N0     &trans
-          &trans HRML(EXCL,    AT,     HASH,    DLLR) &kp PRCNT      &kp CARET HRMR(AMPS,    ASTRK, LPAR,  RPAR)  &trans
-          &trans &kp  ESC  &kp TAB &kp CAPS &kp TILDE &kp GRAVE      &kp LEFT  &kp  DOWN &kp UP &kp RIGHT  &trans &trans
-                                            &trans &trans &trans     &kp C_VOL_UP &trans &trans
+          &none &kp  N1       &kp N2  &kp N3   &kp N4    &kp N5         &kp N6    &kp  N7   &kp N8     &kp N9     &kp N0       &none
+          &none HRML(EXCL,        AT,     HASH,    DLLR) &kp PRCNT      &kp CARET HRMR(AMPS,    ASTRK,     LPAR,      RPAR)    &none
+          &none &kp  C_VOL_DN &kp TAB &kp CAPS &kp TILDE &kp GRAVE      &kp LEFT  &kp  DOWN &kp UP     &kp RIGHT  &kp C_VOL_UP &none
+                                                &none &trans &none      &none &none &none
         >;
       };
       sym {
         bindings = <
-          &trans &bootloader &bt BT_NXT &trans &trans &trans      &kp C_PREV &kp C_PLAY &kp C_NEXT &trans &trans  &trans
-          &trans &bt BT_CLR  &bt BT_PRV &trans &trans &trans      &trans     &trans     &trans     &trans &trans  &trans
-          &trans &kp F1      &kp F2     &kp F3 &kp F4 &kp F5      &kp F6     &kp F7     &kp F8     &kp F9 &kp F10 &trans
-                        &trans &trans &kp C_VOL_DN       &trans &trans &trans
+          &none &bootloader &bt BT_NXT &none  &none  &none       &none  &none  &none  &none  &none   &none
+          &none &bt BT_CLR  &bt BT_PRV &none  &none  &none       &none  &none  &none  &none  &none   &none
+          &none &kp F1      &kp F2     &kp F3 &kp F4 &kp F5      &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &none
+                                          &none &none &none      &none &trans &none
         >;
       };
   };
@@ -70,9 +70,7 @@
       COMBO(QUOT, &kp SQT, 17 18)
       COMBO(DQUO, &kp DQT, 27 32)
       COMBO(LBRC, &kp LBRC, 3 4)
-      COMBO(RBRC, &kp RBRC, 4 5)
-      COMBO(LBKT, &kp LBKT, 6 7)
-      COMBO(RBKT, &kp RBKT, 7 8)
+      COMBO(RBKT, &kp LBKT, 7 8)
       COMBO(BKSL, &kp BSLH, 3 8)
       COMBO(COLN, &kp COLON, 5 6)
       COMBO(PLUS, &kp PLUS, 14 21)
