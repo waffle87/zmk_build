@@ -50,6 +50,7 @@ do
     "corne-ish zen")
       echo "building corne-ish zen firmware..."
       test_uf2
+      cp config/corne.keymap config/corne-ish_zen.keymap
       (cd ${ZMK_DIR}
       if [[ $(git branch --show-current) = "main" ]]; then
         git checkout ${ZEN_BRANCH}
@@ -61,6 +62,7 @@ do
       west build -p -b corne-ish_zen_right -- -DZMK_CONFIG="${CONFIG_DIR}"
       cp ${ZMK_DIR}/app/build/zephyr/zmk.uf2 ~/corne-ish_zen_right.uf2
       )
+      rm config/corne-ish_zen.keymap
       break
       ;;
     "quit")
