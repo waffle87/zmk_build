@@ -9,28 +9,36 @@
 / {
   keymap {
     compatible = "zmk,keymap";
-      base {
+      qwerty {
         bindings = <
           &none &kp  Q &kp W &kp E &kp R  &kp T      &kp Y &kp  U &kp I     &kp O   &kp P     &none
           &none HRML(A,    S,    D,    F) &kp G      &kp H HRMR(J,    K,        L,      SEMI) &none
           &none &kp  Z &kp X &kp C &kp V  &kp B      &kp N &kp  M &kp COMMA &kp DOT &kp FSLH  &none
-                     &updir &lt 1 ESC &kp SPACE      &kp BSPC &lt 2 RS(RC(V)) &pnp
+                     &updir &lt 2 ESC &kp SPACE      &kp BSPC &lt 3 RS(RC(V)) &pnp
         >;
       };
-      num {
+      colemak {
         bindings = <
-          &none &kp  N1       &kp N2  &kp N3   &kp N4    &kp N5         &kp N6    &kp  N7   &kp N8     &kp N9     &kp N0       &none
-          &none HRML(EXCL,        AT,     HASH,    DLLR) &kp PRCNT      &kp CARET HRMR(AMPS,    ASTRK,     LPAR,      RPAR)    &none
-          &none &kp  C_VOL_DN &kp TAB &kp CAPS &kp TILDE &kp GRAVE      &kp LEFT  &kp  DOWN &kp UP     &kp RIGHT  &kp C_VOL_UP &none
-                                                &none &trans &none      &none &none &none
+          &trans &kp  Q &kp W &kp F &kp P  &kp G      &kp J &kp  L &kp U     &kp Y   &kp SEMI &trans
+          &trans HRML(A,    R,    S,    T) &kp D      &kp H HRMR(N,    E,        I,      O)   &trans
+          &trans &kp  Z &kp X &kp C &kp V  &kp B      &kp N &kp  M &kp COMMA &kp DOT &kp FSLH &trans
+                            &trans &trans &trans      &trans &trans &trans  
         >;
       };
-      sym {
+      2 {
         bindings = <
-          &none &bootloader &bt BT_NXT &none  &none  &none       &none  &none  &none  &none  &none   &none
-          &none &bt BT_CLR  &bt BT_PRV &none  &none  &none       &none  &none  &none  &none  &none   &none
-          &none &kp F1      &kp F2     &kp F3 &kp F4 &kp F5      &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &none
-                                          &none &none &none      &none &trans &none
+          &trans &kp  N1       &kp N2  &kp N3   &kp N4    &kp N5         &kp N6    &kp  N7   &kp N8     &kp N9     &kp N0       &trans
+          &trans HRML(EXCL,        AT,     HASH,    DLLR) &kp PRCNT      &kp CARET HRMR(AMPS,    ASTRK,     LPAR,      RPAR)    &trans
+          &trans &kp  C_VOL_DN &kp TAB &kp CAPS &kp TILDE &kp GRAVE      &kp LEFT  &kp  DOWN &kp UP     &kp RIGHT  &kp C_VOL_UP &trans
+                                                 &none &trans &none      &none &none &none
+        >;
+      };
+      3 {
+        bindings = <
+          &trans &bootloader &bt BT_NXT &none  &none  &none       &none  &none  &none  &none  &none   &trans
+          &trans &bt BT_CLR  &bt BT_PRV &none  &none  &none       &none  &none  &none  &none  &none   &trans
+          &trans &kp F1      &kp F2     &kp F3 &kp F4 &kp F5      &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &trans
+                                           &none &none &none      &none &trans &none
         >;
       };
   };
