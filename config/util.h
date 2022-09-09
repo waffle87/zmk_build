@@ -1,11 +1,12 @@
 // Copyright 2022 jack (@waffle87)
 // SPDX-License-Identifier: MIT
 
-#define COMBO(name, keypress, keypos) \
+#define COMBO(name, keypress, keypos, layer) \
 combo_##name { \
-  timeout-ms = <50>; \
-  bindings = <keypress>; \
-  key-positions = <keypos>; \
+   layers = <layer>; \
+   timeout-ms = <50>; \
+   bindings = <keypress>; \
+   key-positions = <keypos>; \
 };
 
 #define HRML(k1,k2,k3,k4) &hm LALT k1 &hm LGUI k2 &hm LCTRL k3 &hm LSHFT k4

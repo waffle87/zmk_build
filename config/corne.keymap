@@ -74,18 +74,21 @@
 
   combos {
     compatible = "zmk,combos";
-      COMBO(ENTR, &kp RET, 4 7)
-      COMBO(QUOT, &kp SQT, 17 18)
-      COMBO(DQUO, &kp DQT, 27 32)
-      COMBO(LBRC, &kp LBRC, 3 4)
-      COMBO(RBKT, &kp LBKT, 7 8)
-      COMBO(BKSL, &kp BSLH, 3 8)
-      COMBO(COLN, &kp COLON, 5 6)
-      COMBO(PLUS, &kp PLUS, 14 21)
-      COMBO(QUES, &kp QMARK, 28 31)
-      COMBO(UNDS, &kp UNDER, 29 30)
-      COMBO(MINS, &kp MINUS, 2 9)
-      COMBO(EQAL, &kp EQUAL, 15 20)
-      COMBO(CAPW, &caps_word, 16 19)
+      //    name  output      pos.   layer
+      COMBO(entr, &kp RET,    4 7,   0 1)
+      COMBO(quot, &kp SQT,    17 18, 0 1)
+      COMBO(dquo, &kp DQT,    27 32, 0 1)
+      COMBO(lbrc, &kp LBRC,   3 4,   0 1)
+      COMBO(rbkt, &kp LBKT,   7 8,   0 1)
+      COMBO(bksl, &kp BSLH,   3 8,   0 1)
+      COMBO(coln, &kp COLON,  5 6,   0 1)
+      COMBO(plus, &kp PLUS,   14 21, 0 1)
+      COMBO(ques, &kp QMARK,  28 31, 0 1)
+      COMBO(unds, &kp UNDER,  29 30, 0 1)
+      COMBO(mins, &kp MINUS,  2 9,   0 1)
+      COMBO(eqal, &kp EQUAL,  15 20, 0 1)
+      COMBO(capw, &caps_word, 16 19, 0 1)
+      COMBO(clmk, &tog 1,     0 10,  0)
+      COMBO(qwrt, &tog 0,     0 10,  1)
   };
 };
