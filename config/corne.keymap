@@ -6,6 +6,10 @@
 #include <dt-bindings/zmk/bt.h>
 #include "util.h"
 
+&lt {
+    tapping-term-ms = <100>;
+};
+
 / {
   keymap {
     compatible = "zmk,keymap";
@@ -58,7 +62,7 @@
         compatible = "zmk,behavior-tap-dance";
         label = "PLAY_NEXT_PREV";
         #binding-cells = <0>;
-        tapping-term-ms = <120>;
+        tapping-term-ms = <210>;
         bindings = <&kp C_PLAY>, <&kp C_NEXT>, <&kp C_PREV>;
     };
   };
