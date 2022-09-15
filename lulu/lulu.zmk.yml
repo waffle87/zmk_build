@@ -1,0 +1,12 @@
+file_format: "1"
+id: lulu
+name: Lulu
+type: shield
+url: https://boardsource.xyz/projects/60de24d6847112054777bbdd
+requires:
+  - pro_micro
+features:
+  - keys
+siblings:
+  - lulu_left
+  - lulu_right

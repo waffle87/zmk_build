@@ -1,0 +1,8 @@
+# Copyright 2022 jack (@waffle87)
+# SPDX-License-Identifier: MIT
+
+config SHIELD_LULU_LEFT
+  def_bool $(shields_list_contains,lulu_left)
+
+config SHIELD_LULU_RIGHT
+  def_bool $(shields_list_contains,lulu_right)
