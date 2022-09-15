@@ -5,8 +5,12 @@ type: shield
 url: https://boardsource.xyz/projects/60de24d6847112054777bbdd
 requires:
   - pro_micro
+exposes:
+  - i2c_oled
 features:
   - keys
+  - display
+  - underglow
 siblings:
   - lulu_left
   - lulu_right

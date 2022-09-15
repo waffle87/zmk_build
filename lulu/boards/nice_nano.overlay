@@ -1,0 +1,28 @@
+// Copyright 2022 jack (@waffle87)
+// SPDX-License-Identifier: MIT
+
+#include <dt-bindings/led/led.h>
+
+&spi1 {
+  compatible = "nordic,nrf-spim";
+  status = "okay";
+  mosi-pin = <6>;
+  sck-pin = <5>;
+  miso-pin = <7>;
+  led_strip: ws2812@0 {
+    compatible = "worldsemi,ws2812-spi";
+    label = "WS2812";
+    reg = <0>;
+    spi-max-frequency = <4000000>;
+    chain-length = <6>;
+    spi-one-frame = <0x70>;
+    spi-zero-frame = <0x40>;
+    color-mapping = <LED_COLOR_ID_GREEN LED_COLOR_ID_RED LED_COLOR_ID_BLUE>;
+  };
+};
+
+/ {
+  chosen {
+    zmk,underglow = &led_strip;
+  }
+}
