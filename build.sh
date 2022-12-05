@@ -1,6 +1,7 @@
 #!/bin/sh
 ZSDK_VERSION=0.13.2
 ZEN_BRANCH=Board-Corne-ish-Zen-dedicated-work-queue
+LINK=~/waffle_git/zmk/app/boards/shields/revxlp
 CONFIG_DIR=~/waffle_git/zmk-build/config
 ZMK_DIR=~/waffle_git/zmk
 UF2=~/*.uf2
@@ -27,7 +28,7 @@ fi
 
 echo -e "\n"
 PS3="choose keyboard to build: "
-options=("corne" "corne-ish zen" "quit")
+options=("corne" "corne-ish zen" "revxlp" "quit")
 select opt in "${options[@]}"
 do
   case $opt in
@@ -63,6 +64,20 @@ do
       cp ${ZMK_DIR}/app/build/zephyr/zmk.uf2 ~/corne-ish_zen_right.uf2
       )
       rm config/corne-ish_zen.keymap
+      break
+      ;;
+    "revxlp")
+      echo "building revxlp firmware..."
+      test_uf2
+      cp config/corne.keymap revxlp/revxlp.keymap
+      if ! [ -L $LINK]; then
+        ln -s ~/waffle_git/zmk-build/revxlp $LINK
+      fi
+      (cd ${ZMK_DIR}/app
+      west build -p -b seeeduino_xiao_ble -- -DSHIELD=revxlp
+      cp ${ZMK_DIR}/app/build/zephyr/zmk.uf2 ~/revxlp.uf2
+      )
+      rm revxlp/revxlp.keymap
       break
       ;;
     "quit")
