@@ -28,7 +28,7 @@ fi
 
 echo -e "\n"
 PS3="choose keyboard to build: "
-options=("corne" "corne-ish zen" "revxlp" "quit")
+options=("corne" "corne-ish zen" "revxlp" "settings reset" "quit")
 select opt in "${options[@]}"
 do
   case $opt in
@@ -78,6 +78,17 @@ do
       cp ${ZMK_DIR}/app/build/zephyr/zmk.uf2 ~/revxlp.uf2
       )
       rm revxlp/revxlp.keymap
+      break
+      ;;
+    "settings reset")
+      echo "building settings reset firmware..."
+      test_uf2
+      (cd ${ZMK_DIR}/app
+      west build -p -b nice_nano -- -DSHIELD=settings_reset
+      cp ${ZMK_DIR}/app/build/zephyr/zmk.uf2 ~/settings_reset_v1.uf2
+      west build -p -b nice_nano_v2 -- -DSHIELD=settings_reset
+      cp ${ZMK_DIR}/app/build/zephyr/zmk.uf2 ~/settings_reset_v2.uf2
+      )
       break
       ;;
     "quit")
