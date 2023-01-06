@@ -39,7 +39,8 @@ do
     "revxlp")
       echo "building revxlp firmware..."
       cp config/corne.keymap revxlp/revxlp.keymap
-      if ! [ -L $LINK]; then
+      cp util.h ${ZMK_DIR}/app/boards/shields
+      if [ ! -L $LINK ]; then
         ln -s ~/waffle_git/zmk-build/revxlp $LINK
       fi
       (cd ${ZMK_DIR}/app
@@ -47,6 +48,7 @@ do
       cp ${ZMK_DIR}/app/build/zephyr/zmk.uf2 ~/revxlp.uf2
       )
       rm revxlp/revxlp.keymap
+      rm ${ZMK_DIR}/app/boards/shields/util.h
       echo "complete :^)"
       break
       ;;

@@ -66,10 +66,10 @@
       bindings = <&kp C_PLAY>, <&kp C_NEXT>, <&kp C_PREV>;
     };
 
-    TAP_DANCE(bsls_pipe, &kp BSLH, &kp PIPE, #)
-    TAP_DANCE(quot_dquo, &kp SQT,  &kp DQT,  #)
-    TAP_DANCE(cbrkt,     &kp LBRC, &kp RBRC, #)
-    TAP_DANCE(brkt,      &kp LBKT, &kp RBKT, #)
+    TAP_DANCE(bsls_pipe, &kp BSLH, &kp PIPE)
+    TAP_DANCE(quot_dquo, &kp SQT,  &kp DQT)
+    TAP_DANCE(cbrkt,     &kp LBRC, &kp RBRC)
+    TAP_DANCE(brkt,      &kp LBKT, &kp RBKT)
   };
 
   macros {

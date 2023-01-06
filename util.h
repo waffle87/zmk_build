@@ -9,11 +9,11 @@ combo_##name {                               \
    key-positions = <keypos>;                 \
 };
 
-#define TAP_DANCE(name, keypress1, keypress2, hash) \
+#define TAP_DANCE(name, keypress1, keypress2)       \
 td_##name: name {                                   \
   compatible = "zmk,behavior-tap-dance";            \
   label = "name";                                   \
-  hash##binding-cells = <0>;                        \
+  #binding-cells = <0>;                             \
   tapping-term-ms = <200>;                          \
   bindings = <keypress1>, <keypress2>;              \
 };
