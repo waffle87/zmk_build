@@ -65,34 +65,11 @@
       tapping-term-ms = <210>;
       bindings = <&kp C_PLAY>, <&kp C_NEXT>, <&kp C_PREV>;
     };
-    bsls_pipe: backslash_pipe {
-      compatible = "zmk,behavior-tap-dance";
-      label = "BACKSLASH_PIPE";
-      #binding-cells = <0>;
-      tapping-term-ms = <200>;
-      bindings = <&kp BSLH>, <&kp PIPE>;
-    };
-    quot_dquo: quote_dquote {
-      compatible = "zmk,behavior-tap-dance";
-      label = "QUOTE_DQUOTE";
-      #binding-cells = <0>;
-      tapping-term-ms = <200>;
-      bindings = <&kp SQT>, <&kp DQT>;
-    };
-    cbrkt: l_r_curly_bracket {
-      compatible = "zmk,behavior-tap-dance";
-      label = "L_R_CURLY_BRACKET";
-      #binding-cells = <0>;
-      tapping-term-ms = <200>;
-      bindings = <&kp LBRC>, <&kp RBRC>;
-    };
-    brkt: l_r_bracket {
-      compatible = "zmk,behavior-tap-dance";
-      label = "L_R_BRACKET";
-      #binding-cells = <0>;
-      tapping-term-ms = <200>;
-      bindings = <&kp LBKT>, <&kp RBKT>;
-    };
+
+    TAP_DANCE(bsls_pipe, &kp BSLH, &kp PIPE, #)
+    TAP_DANCE(quot_dquo, &kp SQT,  &kp DQT,  #)
+    TAP_DANCE(cbrkt,     &kp LBRC, &kp RBRC, #)
+    TAP_DANCE(brkt,      &kp LBKT, &kp RBKT, #)
   };
 
   macros {
@@ -107,19 +84,19 @@
   combos {
     compatible = "zmk,combos";
       //    name     output      pos.   layer
-      COMBO(ru_ent,  &kp RET,    4 7,   0 1)
-      COMBO(dk_eql,  &kp EQUAL,  15 20, 0 1)
-      COMBO(gh_quot, &quot_dquo, 17 18, 0 1)
-      COMBO(vm_ques, &kp QMARK,  28 31, 0 1)
-      COMBO(ty_coln, &kp COLON,  5 6,   0 1)
-      COMBO(bn_unds, &kp UNDER,  29 30, 0 1)
-      COMBO(er_cbkt, &cbrkt,     3 4,   0 1)
-      COMBO(ui_brkt, &brkt,      7 8,   0 1)
-      COMBO(sl_plus, &kp PLUS,   14 21, 0 1)
-      COMBO(ei_bsls, &bsls_pipe, 3 8,   0 1)
-      COMBO(wo_mins, &kp MINUS,  2 9,   0 1)
-      COMBO(fj_capw, &caps_word, 16 19, 0 1)
-      COMBO(qp_clmk, &tog 1,     1 10,  0)
-      COMBO(qp_qwrt, &tog 0,     1 10,  1)
+      COMBO(ru_ent,  &kp RET,       4 7,   0 1)
+      COMBO(dk_eql,  &kp EQUAL,     15 20, 0 1)
+      COMBO(gh_quot, &td_quot_dquo, 17 18, 0 1)
+      COMBO(vm_ques, &kp QMARK,     28 31, 0 1)
+      COMBO(ty_coln, &kp COLON,     5 6,   0 1)
+      COMBO(bn_unds, &kp UNDER,     29 30, 0 1)
+      COMBO(er_cbkt, &td_cbrkt,     3 4,   0 1)
+      COMBO(ui_brkt, &td_brkt,      7 8,   0 1)
+      COMBO(sl_plus, &kp PLUS,      14 21, 0 1)
+      COMBO(ei_bsls, &td_bsls_pipe, 3 8,   0 1)
+      COMBO(wo_mins, &kp MINUS,     2 9,   0 1)
+      COMBO(fj_capw, &caps_word,    16 19, 0 1)
+      COMBO(qp_clmk, &tog 1,        1 10,  0)
+      COMBO(qp_qwrt, &tog 0,        1 10,  1)
   };
 };
