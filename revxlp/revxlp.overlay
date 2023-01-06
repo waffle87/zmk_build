@@ -24,15 +24,6 @@
 	chosen {
 		zmk,kscan = &kscan0;
 		zmk,matrix_transform = &default_transform;
-		zmk,backlight = &backlight;
-	};
-
-	backlight: backlight_leds {
-		compatible = "gpio-leds";
-		led_mosfet {
-			gpios = <&xiao_d 7 GPIO_ACTIVE_LOW>;
-			label = "Backlight LED 0";
-		};
 	};
 
 	default_transform: keymap_transform_0 {
