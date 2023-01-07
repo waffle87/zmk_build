@@ -1,12 +1,11 @@
 #!/bin/sh
 ZSDK_VERSION=0.13.2
-WEST_CMD="west build -p -b"
 LINK=~/waffle_git/zmk/app/boards/shields/revxlp
 CONFIG_DIR=~/waffle_git/zmk-build/config
 ZMK_DIR=~/waffle_git/zmk
 
 update() {
-  (cd ${ZMK_DIR} ; git pull ; west update)
+  (cd $ZMK_DIR ; git pull ; west update)
   wget "https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v${ZSDK_VERSION}/zephyr-toolchain-arm-${ZSDK_VERSION}-linux-x86_64-setup.run"
   chmod +x zephyr-toolchain-arm-${ZSDK_VERSION}-linux-x86_64-setup.run
   ./zephyr-toolchain-arm-${ZSDK_VERSION}-linux-x86_64-setup.run -- -d ~/.local/zephyr-sdk-${ZSDK_VERSION}
@@ -19,6 +18,28 @@ then
   update
 fi
 
+build() {
+  (cd $ZMK_DIR/app
+  west build -p -b $1 -- -DSHIELD=$2 -DZMK_CONFIG="$3" 1> /dev/null
+  cp build/zephyr/zmk.uf2 ~/$2_$1.uf2
+  )
+}
+
+flash() {
+  read -p "flash? (y/n) " -n 1 -r
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    udisksctl mount -b /dev/sdb
+    cp ~/$1.uf2 /run/media/jack/$2
+    echo "success :^)"
+    if (( $3 )); then
+      sleep 30
+      udisksctl mount -b /dev/sdb
+      cp ~/$4.uf2 /run/media/jack/$2
+      echo "success :^)"
+    fi
+  fi
+}
+
 echo -e "\n"
 PS3="choose keyboard to build: "
 options=("corne" "revxlp" "settings reset" "quit")
@@ -27,42 +48,32 @@ do
   case $opt in
     "corne")
       echo "building corne firmware..."
-      (cd ${ZMK_DIR}/app
-      ${WEST_CMD} nice_nano -- -DSHIELD=corne_left -DZMK_CONFIG="${CONFIG_DIR}" 1> /dev/null
-      cp ${ZMK_DIR}/app/build/zephyr/zmk.uf2 ~/corne_left.uf2
-      ${WEST_CMD} nice_nano_v2 -- -DSHIELD=corne_right -DZMK_CONFIG="${CONFIG_DIR}" 1> /dev/null
-      cp ${ZMK_DIR}/app/build/zephyr/zmk.uf2 ~/corne_right.uf2
-      )
-      echo "complete :^)"
+      build nice_nano corne_left $CONFIG_DIR
+      build nice_nano_v2 corne_right $CONFIG_DIR
+      flash corne_left_nice_nano NICENANO 2 corne_right_nice_nano_v2
+      echo -e "\ncomplete :^)"
       break
       ;;
     "revxlp")
       echo "building revxlp firmware..."
       cp config/corne.keymap revxlp/revxlp.keymap
-      cp util.h ${ZMK_DIR}/app/boards/shields
+      cp util.h $ZMK_DIR/app/boards/shields
       if [ ! -L $LINK ]; then
         ln -s ~/waffle_git/zmk-build/revxlp $LINK
       fi
-      (cd ${ZMK_DIR}/app
-      ${WEST_CMD} seeeduino_xiao_ble -- -DSHIELD=revxlp 1> /dev/null
-      cp ${ZMK_DIR}/app/build/zephyr/zmk.uf2 ~/revxlp.uf2
-      )
+      build seeeduino_xiao_ble revxlp
       rm revxlp/revxlp.keymap
-      rm ${ZMK_DIR}/app/boards/shields/util.h
-      echo "complete :^)"
+      rm $ZMK_DIR/app/boards/shields/util.h
+      flash revxlp_seeduino_xiao_ble XIAO-SENSE
+      echo -e "\ncomplete :^)"
       break
       ;;
     "settings reset")
       echo "building settings reset firmware..."
-      (cd ${ZMK_DIR}/app
-      ${WEST_CMD} nice_nano -- -DSHIELD=settings_reset &> /dev/null
-      cp ${ZMK_DIR}/app/build/zephyr/zmk.uf2 ~/settings_reset_v1.uf2
-      ${WEST_CMD} nice_nano_v2 -- -DSHIELD=settings_reset &> /dev/null
-      cp ${ZMK_DIR}/app/build/zephyr/zmk.uf2 ~/settings_reset_v2.uf2
-      ${WEST_CMD} seeeduino_xiao_ble -- -DSHIELD=settings_reset &> /dev/null
-      cp ${ZMK_DIR}/app/build/zephyr/zmk.uf2 ~/settings_reset_xiao.uf2
-      )
-      echo "complete :^)"
+      build nice_nano settings_reset v1
+      build nice_nano_v2 settings_reset v2
+      build seeeduino_xiao_ble settings_reset xiao
+      echo -e "\ncomplete :^)"
       break
       ;;
     "quit")
