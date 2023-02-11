@@ -1,12 +1,11 @@
 // Copyright 2022 jack (@waffle87)
 // SPDX-License-Identifier: MIT
 
-#define COMBO(name, keypress, keypos, layer) \
-combo_##name {                               \
-   layers = <layer>;                         \
-   timeout-ms = <50>;                        \
-   bindings = <keypress>;                    \
-   key-positions = <keypos>;                 \
+#define COMBO(name, keypress, keypos) \
+combo_##name {                        \
+   timeout-ms = <50>;                 \
+   bindings = <keypress>;             \
+   key-positions = <keypos>;          \
 };
 
 #define TAP_DANCE(name, keypress1, keypress2) \

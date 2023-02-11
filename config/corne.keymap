@@ -13,23 +13,15 @@
 / {
   keymap {
     compatible = "zmk,keymap";
-      qwerty {
+      0 {
         bindings = <
           &none &kp  Q &kp W &kp E &kp R  &kp T      &kp Y &kp  U &kp I     &kp O   &kp P     &none
           &none HRML(A,    S,    D,    F) &kp G      &kp H HRMR(J,    K,        L,      SEMI) &none
           &none &kp  Z &kp X &kp C &kp V  &kp B      &kp N &kp  M &kp COMMA &kp DOT &kp FSLH  &none
-                     &updir &lt 2 ESC &kp SPACE      &kp BSPC &lt 3 RS(RC(V)) &pnp
+                     &updir &lt 1 ESC &kp SPACE      &kp BSPC &lt 2 RS(RC(V)) &pnp
         >;
       };
-      colemak {
-        bindings = <
-          &trans &kp  Q &kp W &kp F &kp P  &kp G      &kp J &kp  L &kp U     &kp Y   &kp SEMI &trans
-          &trans HRML(A,    R,    S,    T) &kp D      &kp H HRMR(N,    E,        I,      O)   &trans
-          &trans &kp  Z &kp X &kp C &kp V  &kp B      &kp N &kp  M &kp COMMA &kp DOT &kp FSLH &trans
-                            &trans &trans &trans      &trans &trans &trans  
-        >;
-      };
-      2 {
+      1 {
         bindings = <
           &trans &kp  N1       &kp N2  &kp N3   &kp N4    &kp N5         &kp N6    &kp  N7   &kp N8     &kp N9     &kp N0       &trans
           &trans HRML(EXCL,        AT,     HASH,    DLLR) &kp PRCNT      &kp CARET HRMR(AMPS,    ASTRK,     LPAR,      RPAR)    &trans
@@ -37,7 +29,7 @@
                                                  &none &trans &none      &none &none &none
         >;
       };
-      3 {
+      2 {
         bindings = <
           &trans &bootloader &bt BT_NXT &none  &none  &none       &none  &none  &none  &none  &none   &trans
           &trans &bt BT_CLR  &bt BT_PRV &none  &none  &none       &none  &none  &none  &none  &none   &trans
@@ -52,7 +44,7 @@
       compatible = "zmk,behavior-hold-tap";
       label = "HOMEROW_MODS";
       #binding-cells = <2>;
-      tapping-term-ms = <140>;
+      tapping-term-ms = <130>;
       quick_tap_ms = <0>;
       flavor = "tap-preferred";
       bindings = <&kp>, <&kp>;
@@ -83,20 +75,17 @@
 
   combos {
     compatible = "zmk,combos";
-      //    name     output      pos.   layer
-      COMBO(ru_ent,  &kp RET,       4 7,   0 1)
-      COMBO(dk_eql,  &kp EQUAL,     15 20, 0 1)
-      COMBO(gh_quot, &td_quot_dquo, 17 18, 0 1)
-      COMBO(vm_ques, &kp QMARK,     28 31, 0 1)
-      COMBO(ty_coln, &kp COLON,     5 6,   0 1)
-      COMBO(bn_unds, &kp UNDER,     29 30, 0 1)
-      COMBO(er_cbkt, &td_cbrkt,     3 4,   0 1)
-      COMBO(ui_brkt, &td_brkt,      7 8,   0 1)
-      COMBO(sl_plus, &kp PLUS,      14 21, 0 1)
-      COMBO(ei_bsls, &td_bsls_pipe, 3 8,   0 1)
-      COMBO(wo_mins, &kp MINUS,     2 9,   0 1)
-      COMBO(fj_capw, &caps_word,    16 19, 0 1)
-      COMBO(qp_clmk, &tog 1,        1 10,  0)
-      COMBO(qp_qwrt, &tog 0,        1 10,  1)
+      //    name       output         pos.
+      COMBO(ru_ent,    &kp RET,       4 7)
+      COMBO(dk_eql,    &kp EQUAL,     15 20)
+      COMBO(gh_quot,   &td_quot_dquo, 17 18)
+      COMBO(ty_coln,   &kp COLON,     5 6)
+      COMBO(bn_unds,   &kp UNDER,     29 30)
+      COMBO(er_cbkt,   &td_cbrkt,     3 4)
+      COMBO(ui_brkt,   &td_brkt,      7 8)
+      COMBO(ccom_plus, &kp PLUS,      27 32)
+      COMBO(ei_bsls,   &td_bsls_pipe, 3 8)
+      COMBO(vm_mins,   &kp MINUS,     28 31)
+      COMBO(fj_capw,   &caps_word,    16 19)
   };
 };

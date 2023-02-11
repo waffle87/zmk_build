@@ -28,13 +28,14 @@ build() {
 flash() {
   read -p "flash? (y/n) " -n 1 -r
   if [[ $REPLY =~ ^[Yy]$ ]]; then
-    udisksctl mount -b /dev/sdb
-    cp ~/$1.uf2 /run/media/jack/$2
+    sleep 10
+    sudo mount /dev/sdb /tmp/disk
+    cp ~/$1.uf2 /tmp/disk/$2
     echo "success :^)"
     if (( $3 )); then
       sleep 30
-      udisksctl mount -b /dev/sdb
-      cp ~/$4.uf2 /run/media/jack/$2
+      sudo mount /dev/sdb /tmp/disk
+      cp ~/$4.uf2 /tmp/disk/$2
       echo "success :^)"
     fi
   fi
