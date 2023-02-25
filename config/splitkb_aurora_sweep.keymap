@@ -18,7 +18,7 @@
         &kp  Q &kp W &kp E &kp R  &kp T        &kp Y &kp  U &kp I     &kp O   &kp P
         HRML(A,    S,    D,    F) &kp G        &kp H HRMR(J,    K,        L,      SEMI)
         &kp  Z &kp X &kp C &kp V  &kp B        &kp N &kp  M &kp COMMA &kp DOT &kp FSLH
-                    &lt 1 ESC &kp SPACE        &kp BSPC, &lt 2 RS(RC(V))
+                    &lt 1 ESC &kp SPACE        &kp BSPC &lt 2 RS(RC(V))
       >;
     };
     1 {
@@ -37,5 +37,35 @@
                                       &trans &trans       &trans &trans
       >;
     };
+  };
+  behaviors {
+    hm: homerow_mods {
+      compatible = "zmk,behavior-hold-tap";
+      label = "HOMEROW_MODS";
+      #binding-cells = <2>;
+      tapping-term-ms = <130>;
+      quick_tap_ms = <0>;
+      flavor = "tap-preferred";
+      bindings = <&kp>, <&kp>;
+    };
+    TAP_DANCE(bsls_pipe, &kp BSLH, &kp PIPE)
+    TAP_DANCE(quot_dquo, &kp SQT,  &kp DQT)
+    TAP_DANCE(cbrkt,     &kp LBRC, &kp RBRC)
+    TAP_DANCE(brkt,      &kp LBKT, &kp RBKT)
+  };
+  combos {
+    compatible = "zmk,combos";
+      //    name       output         pos.
+      COMBO(ru_ent,    &kp RET,       3 6)
+      COMBO(dk_eql,    &kp EQUAL,     12 17)
+      COMBO(gh_quot,   &td_quot_dquo, 14 15)
+      COMBO(ty_coln,   &kp COLON,     4 5)
+      COMBO(bn_unds,   &kp UNDER,     24 25)
+      COMBO(er_cbkt,   &td_cbrkt,     2 3)
+      COMBO(ui_brkt,   &td_brkt,      6 7)
+      COMBO(ccom_plus, &kp PLUS,      22 27)
+      COMBO(ei_bsls,   &td_bsls_pipe, 2 7)
+      COMBO(vm_mins,   &kp MINUS,     23 26)
+      COMBO(fj_capw,   &caps_word,    13 16)
   };
 };
