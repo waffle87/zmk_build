@@ -55,17 +55,17 @@
   };
   combos {
     compatible = "zmk,combos";
-      //    name       output         pos.
-      COMBO(ru_ent,    &kp RET,       3 6)
-      COMBO(dk_eql,    &kp EQUAL,     12 17)
-      COMBO(gh_quot,   &td_quot_dquo, 14 15)
-      COMBO(ty_coln,   &kp COLON,     4 5)
-      COMBO(bn_unds,   &kp UNDER,     24 25)
-      COMBO(er_cbkt,   &td_cbrkt,     2 3)
-      COMBO(ui_brkt,   &td_brkt,      6 7)
-      COMBO(ccom_plus, &kp PLUS,      22 27)
-      COMBO(ei_bsls,   &td_bsls_pipe, 2 7)
-      COMBO(vm_mins,   &kp MINUS,     23 26)
-      COMBO(fj_capw,   &caps_word,    13 16)
+    //    name       output         pos.
+    COMBO(ru_ent,    &kp RET,       3 6)
+    COMBO(dk_eql,    &kp EQUAL,     12 17)
+    COMBO(gh_quot,   &td_quot_dquo, 14 15)
+    COMBO(ty_coln,   &kp COLON,     4 5)
+    COMBO(bn_unds,   &kp UNDER,     24 25)
+    COMBO(er_cbkt,   &td_cbrkt,     2 3)
+    COMBO(ui_brkt,   &td_brkt,      6 7)
+    COMBO(ccom_plus, &kp PLUS,      22 27)
+    COMBO(ei_bsls,   &td_bsls_pipe, 2 7)
+    COMBO(vm_mins,   &kp MINUS,     23 26)
+    COMBO(fj_capw,   &caps_word,    13 16)
   };
 };
