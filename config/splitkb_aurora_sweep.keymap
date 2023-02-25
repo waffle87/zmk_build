@@ -1,0 +1,41 @@
+// Copyright 2022 jack (@waffle87)
+// SPDX-License-Identifier: MIT
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include "../util.h"
+
+&lt {
+  tapping-term-ms = <100>;
+};
+
+/ {
+  keymap {
+  compatible = "zmk,keymap";
+    0 {
+      bindings = <
+        &kp  Q &kp W &kp E &kp R  &kp T        &kp Y &kp  U &kp I     &kp O   &kp P
+        HRML(A,    S,    D,    F) &kp G        &kp H HRMR(J,    K,        L,      SEMI)
+        &kp  Z &kp X &kp C &kp V  &kp B        &kp N &kp  M &kp COMMA &kp DOT &kp FSLH
+                    &lt 1 ESC &kp SPACE        &kp BSPC, &lt 2 RS(RC(V))
+      >;
+    };
+    1 {
+      bindings = <
+        &kp  N1       &kp N2  &kp N3   &kp N4    &kp N5           &kp N6    &kp  N7   &kp N8     &kp N9     &kp N0
+        HRML(EXCL,        AT,     HASH,    DLLR) &kp PRCNT        &kp CARET HRMR(AMPS,    ASTRK,     LPAR,      RPAR)
+        &kp  C_VOL_DN &kp TAB &kp CAPS &kp TILDE &kp GRAVE        &kp LEFT  &kp  DOWN &kp UP     &kp RIGHT  &kp C_VOL_UP
+                                             &trans &trans        &trans &trans
+      >;
+    };
+    2 {
+      bindings = <
+        &bootloader &bt BT_NXT &none  &none  &none        &none  &none  &none  &none  &none
+        &bt BT_CLR  &bt BT_PRV &none  &none  &none        &none  &none  &none  &none  &none
+        &kp F1      &kp F2     &kp F3 &kp F4 &kp F5       &kp F6 &kp F7 &kp F8 &kp F9 &kp F10
+                                      &trans &trans       &trans &trans
+      >;
+    };
+  };
+};
