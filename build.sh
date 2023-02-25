@@ -43,7 +43,7 @@ flash() {
 
 echo -e "\n"
 PS3="choose keyboard to build: "
-options=("corne" "revxlp" "settings reset" "quit")
+options=("corne" "revxlp" "sweep" "settings reset" "quit")
 select opt in "${options[@]}"
 do
   case $opt in
@@ -66,6 +66,14 @@ do
       rm revxlp/revxlp.keymap
       rm $ZMK_DIR/app/boards/shields/util.h
       flash revxlp_seeduino_xiao_ble XIAO-SENSE
+      echo -e "\ncomplete :^)"
+      break
+      ;;
+    "sweep")
+      echo "building aurora sweep firmware..."
+      build nice_nano_v2 splitkb_aurora_sweep_left $CONFIG_DIR
+      build nice_nano_v2 splitkb_aurora_sweep_right $CONFIG_DIR
+      flash splitkb_aurora_sweep_left_nice_nano_v2 NICENANO 2 splitkb_aurora_sweep_right_nice_nano_v2
       echo -e "\ncomplete :^)"
       break
       ;;
