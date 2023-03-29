@@ -28,35 +28,41 @@ build() {
 flash() {
   read -p "flash? (y/n) " -n 1 -r
   if [[ $REPLY =~ ^[Yy]$ ]]; then
-    sleep 10
-    sudo mount /dev/sdb /tmp/disk
-    cp ~/$1.uf2 /tmp/disk/$2
-    echo "success :^)"
     if (( $3 )); then
+      printf "\nflashing left half...\n"
+    fi
+    sleep 10
+    doas mount /dev/sdb /tmp/disk
+    doas cp ~/$1.uf2 /tmp/disk
+    doas umount /dev/sdb
+    printf "success :^)"
+    if (( $3 )); then
+      printf "\nflashing right half...\n"
       sleep 30
-      sudo mount /dev/sdb /tmp/disk
-      cp ~/$4.uf2 /tmp/disk/$2
-      echo "success :^)"
+      doas mount /dev/sdb /tmp/disk
+      doas cp ~/$2.uf2 /tmp/disk
+      doas umount /dev/sdb
+      printf "success :^)"
     fi
   fi
 }
 
-echo -e "\n"
+printf "\n"
 PS3="choose keyboard to build: "
 options=("corne" "revxlp" "sweep" "settings reset" "quit")
 select opt in "${options[@]}"
 do
   case $opt in
     "corne")
-      echo "building corne firmware..."
+      printf "building corne firmware...\n"
       build nice_nano corne_left $CONFIG_DIR
       build nice_nano_v2 corne_right $CONFIG_DIR
-      flash corne_left_nice_nano NICENANO 2 corne_right_nice_nano_v2
-      echo -e "\ncomplete :^)"
+      flash corne_left_nice_nano corne_right_nice_nano_v2 2
+      printf "\ncomplete :^)"
       break
       ;;
     "revxlp")
-      echo "building revxlp firmware..."
+      printf "building revxlp firmware...\n"
       cp config/corne.keymap revxlp/revxlp.keymap
       cp util.h $ZMK_DIR/app/boards/shields
       if [ ! -L $LINK ]; then
@@ -65,29 +71,29 @@ do
       build seeeduino_xiao_ble revxlp
       rm revxlp/revxlp.keymap
       rm $ZMK_DIR/app/boards/shields/util.h
-      flash revxlp_seeduino_xiao_ble XIAO-SENSE
-      echo -e "\ncomplete :^)"
+      flash revxlp_seeduino_xiao_ble
+      printf "\ncomplete :^)"
       break
       ;;
     "sweep")
-      echo "building aurora sweep firmware..."
+      printf "building aurora sweep firmware...\n"
       build nice_nano_v2 splitkb_aurora_sweep_left $CONFIG_DIR
       build nice_nano_v2 splitkb_aurora_sweep_right $CONFIG_DIR
-      flash splitkb_aurora_sweep_left_nice_nano_v2 NICENANO 2 splitkb_aurora_sweep_right_nice_nano_v2
-      echo -e "\ncomplete :^)"
+      flash splitkb_aurora_sweep_left_nice_nano_v2 splitkb_aurora_sweep_right_nice_nano_v2 2
+      printf "\ncomplete :^)"
       break
       ;;
     "settings reset")
-      echo "building settings reset firmware..."
+      printf "building settings reset firmware...\n"
       build nice_nano settings_reset v1
       build nice_nano_v2 settings_reset v2
       build seeeduino_xiao_ble settings_reset xiao
-      echo -e "\ncomplete :^)"
+      printf "\ncomplete :^)"
       break
       ;;
     "quit")
       break
       ;;
-    *) echo "invalid option: $REPLY";;
+    *) printf "invalid option: $REPLY";;
   esac
 done

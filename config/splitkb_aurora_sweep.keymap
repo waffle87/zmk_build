@@ -26,7 +26,7 @@
         &kp  N1       &kp N2  &kp N3   &kp N4    &kp N5           &kp N6    &kp  N7   &kp N8     &kp N9     &kp N0
         HRML(EXCL,        AT,     HASH,    DLLR) &kp PRCNT        &kp CARET HRMR(AMPS,    ASTRK,     LPAR,      RPAR)
         &kp  C_VOL_DN &kp TAB &kp CAPS &kp TILDE &kp GRAVE        &kp LEFT  &kp  DOWN &kp UP     &kp RIGHT  &kp C_VOL_UP
-                                             &trans &trans        &trans &trans
+                                             &trans &trans        &trans &pnp
       >;
     };
     2 {
@@ -44,9 +44,16 @@
       label = "HOMEROW_MODS";
       #binding-cells = <2>;
       tapping-term-ms = <130>;
-      quick_tap_ms = <0>;
+      quick-tap-ms = <160>;
       flavor = "tap-preferred";
       bindings = <&kp>, <&kp>;
+    };
+    pnp: play_next_prev {
+      compatible = "zmk,behavior-tap-dance";
+      label = "PLAY_NEXT_PREV";
+      #binding-cells = <0>;
+      tapping-term-ms = <210>;
+      bindings = <&kp C_PLAY>, <&kp C_NEXT>, <&kp C_PREV>;
     };
     TAP_DANCE(bsls_pipe, &kp BSLH, &kp PIPE)
     TAP_DANCE(quot_dquo, &kp SQT,  &kp DQT)
