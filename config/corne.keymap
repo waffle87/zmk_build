@@ -45,7 +45,7 @@
       label = "HOMEROW_MODS";
       #binding-cells = <2>;
       tapping-term-ms = <130>;
-      quick_tap_ms = <0>;
+      quick-tap-ms = <160>;
       flavor = "tap-preferred";
       bindings = <&kp>, <&kp>;
     };
@@ -57,11 +57,11 @@
       tapping-term-ms = <210>;
       bindings = <&kp C_PLAY>, <&kp C_NEXT>, <&kp C_PREV>;
     };
-
     TAP_DANCE(bsls_pipe, &kp BSLH, &kp PIPE)
     TAP_DANCE(quot_dquo, &kp SQT,  &kp DQT)
     TAP_DANCE(cbrkt,     &kp LBRC, &kp RBRC)
     TAP_DANCE(brkt,      &kp LBKT, &kp RBKT)
+    TAP_DANCE(min_dash,  &kp MINUS, &emdash)
   };
 
   macros {
@@ -85,7 +85,7 @@
       COMBO(ui_brkt,   &td_brkt,      7 8)
       COMBO(ccom_plus, &kp PLUS,      27 32)
       COMBO(ei_bsls,   &td_bsls_pipe, 3 8)
-      COMBO(vm_mins,   &kp MINUS,     28 31)
+      COMBO(vm_mins,   &td_min_dash,  28 31)
       COMBO(fj_capw,   &caps_word,    16 19)
   };
 };
