@@ -1,11 +1,14 @@
-// Copyright 2024 jack (@waffle87)
+// Copyright 2022 jack (@waffle87)
 // SPDX-License-Identifier: MIT
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include "util.h"
-#include "user.dtsi"
+
+&lt {
+  tapping-term-ms = <100>;
+};
 
 / {
   keymap {
@@ -34,6 +37,48 @@
                                            &none &none &none      &none &trans &none
         >;
       };
+  };
+
+  behaviors {
+    hm: homerow_mods {
+      compatible = "zmk,behavior-hold-tap";
+      label = "HOMEROW_MODS";
+      #binding-cells = <2>;
+      tapping-term-ms = <130>;
+      quick-tap-ms = <160>;
+      flavor = "tap-preferred";
+      bindings = <&kp>, <&kp>;
+    };
+
+    pnp: play_next_prev {
+      compatible = "zmk,behavior-tap-dance";
+      label = "PLAY_NEXT_PREV";
+      #binding-cells = <0>;
+      tapping-term-ms = <210>;
+      bindings = <&kp C_PLAY>, <&kp C_NEXT>, <&kp C_PREV>;
+    };
+    TAP_DANCE(bsls_pipe, &kp BSLH, &kp PIPE)
+    TAP_DANCE(quot_dquo, &kp SQT,  &kp DQT)
+    TAP_DANCE(cbrkt,     &kp LBRC, &kp RBRC)
+    TAP_DANCE(brkt,      &kp LBKT, &kp RBKT)
+    TAP_DANCE(min_dash,  &kp MINUS, &emdash)
+  };
+
+  macros {
+    updir: updir {
+      label = "UP_DIR";
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings = <&macro_tap &kp DOT &kp DOT &kp FSLH>;
+    };
+    emdash: emdash {
+      label = "EM_DASH";
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings = <&macro_press &kp LSHFT &kp LCTRL>,
+                 <&macro_tap &kp U &kp N2 &kp N0 &kp N1 &kp N4>,
+                 <&macro_release &kp LSHFT &kp LCTRL>;
+    };
   };
 
   combos {

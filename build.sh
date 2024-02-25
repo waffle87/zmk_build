@@ -1,28 +1,26 @@
 #!/bin/sh
-ZMK_DIR=~/git/zmk
+ZMK_DIR=~/waffle_git/zmk
 RED=$(tput setaf 1)
-GREEN=$(tput setaf 2)
 YELLOW=$(tput setaf 3)
+GREEN=$(tput setaf 2)
 BLUE=$(tput setaf 4)
 BOLD=$(tput bold)
 NORMAL=$(tput sgr0)
 source $ZMK_DIR/.venv/bin/activate
-set -e
 
 build() {
-    printf "building ${GREEN}$1${NORMAL} for $BLUE$2$NORMAL...\n"
+    printf "building $GREEN$1$NORMAL for $BLUE$2$NORMAL...\n"
     (cd $ZMK_DIR/app
         west build -p always -b $2 -- -DSHIELD=$1 \
-            -DZMK_CONFIG="$HOME/git/zmk-build/config" \
+            -DZMK_CONFIG="$HOME/waffle_git/zmk-build/config" \
             &> /dev/null
+
         read -p "${BOLD}flash? (y/n) $NORMAL" yn
         case $yn in
             [Yy]*)
                 printf "${YELLOW}enter bootloader$NORMAL...\n"
                 sleep 5
-                doas mount /dev/sdb ~/.local/Media
-                west flash &> /dev/null
-                doas umount /dev/sdb
+                west flash
                 ;;
             [Nn]*) cp build/zephyr/zmk.uf2 ~/$1.uf2 ;;
             * ) printf "${RED}invalid entry$NORMAL\n" ;;
