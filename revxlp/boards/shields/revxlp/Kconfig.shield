@@ -2,5 +2,5 @@
 # SPDX-License-Identifier: MIT
 
 config SHIELD_REVXLP
-  def_bool $(shields_list_contains,revxlp)
-  select SPI
+    def_bool $(shields_list_contains,revxlp)
+    select SPI

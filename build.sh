@@ -13,7 +13,8 @@ build() {
     printf "building ${GREEN}$1${NORMAL} for ${BLUE}$2${NORMAL}...\n"
     (cd $ZMK_DIR/app
         west build -p always -b $2 -- -DSHIELD=$1 \
-            -DZMK_CONFIG="$HOME/waffle_git/zmk-build/config"
+            -DZMK_CONFIG="$HOME/git/zmk-build/config"
+        #   -DZMK_EXTRA_MODULES="$HOME/git/zmk-build/$3"
 
         read -p "${BOLD}flash? (y/n) ${NORMAL}" yn
         case $yn in
@@ -21,7 +22,7 @@ build() {
                 printf "${YELLOW}enter bootloader${NORMAL}...\n"
                 sleep 5
                 doas mount /dev/sdb ~/.local/Media
-                west flash &> /dev/nul
+                west flash
                 doas umount /dev/sdb
                 ;;
             [Nn]*) cp build/zephyr/zmk.uf2 ~/$1.uf2 ;;
@@ -40,9 +41,6 @@ case $opt in
         build corne_right nice_nano_v2
         ;;
     2)
-        if [ ! -L $ZMK_DIR/app/boards/shields/revxlp ]; then
-            ln -sv revxlp $ZMK_DIR/app/boards/shields/revxlp
-        fi
         build revxlp seeeduino_xiao_ble
         ;;
     3)
