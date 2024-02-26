@@ -12,18 +12,20 @@ set -e
 build() {
     printf "building ${GREEN}$1${NORMAL} for ${BLUE}$2${NORMAL}...\n"
     (cd $ZMK_DIR/app
+        MODULE_CMD=""
+        if [ -n $3 ]; then
+            MODULE_CMD=-DZMK_EXTRA_MODULES="$HOME/git/zmk-build/$3"
+        fi
         west build -p always -b $2 -- -DSHIELD=$1 \
-            -DZMK_CONFIG="$HOME/git/zmk-build/config"
-        #   -DZMK_EXTRA_MODULES="$HOME/git/zmk-build/$3"
+            -DZMK_CONFIG=$HOME/git/zmk-build/config $MODULE_CMD
 
         read -p "${BOLD}flash? (y/n) ${NORMAL}" yn
         case $yn in
             [Yy]*)
                 printf "${YELLOW}enter bootloader${NORMAL}...\n"
                 sleep 5
-                doas mount /dev/sdb ~/.local/Media
+                udisksctl mount -b /dev/sdb
                 west flash
-                doas umount /dev/sdb
                 ;;
             [Nn]*) cp build/zephyr/zmk.uf2 ~/$1.uf2 ;;
             * ) printf "${RED}invalid entry${NORMAL}\n" ;;
@@ -41,7 +43,7 @@ case $opt in
         build corne_right nice_nano_v2
         ;;
     2)
-        build revxlp seeeduino_xiao_ble
+        build revxlp seeeduino_xiao_ble "revxlp"
         ;;
     3)
         build splitkb_aurora_sweep_left nice_nano_v2
