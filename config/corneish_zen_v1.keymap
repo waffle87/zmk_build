@@ -1,0 +1,53 @@
+// Copyright 2024 jack (@waffle87)
+// SPDX-License-Identifier: MIT
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include "util.h"
+
+/ {
+  keymap {
+    compatible = "zmk,keymap";
+      0 {
+        bindings = <
+          &none &kp  Q &kp W &kp E &kp R  &kp T      &kp Y &kp  U &kp I     &kp O   &kp P     &none
+          &none HRML(A,    S,    D,    F) &kp G      &kp H HRMR(J,    K,        L,      SEMI) &none
+          &none &kp  Z &kp X &kp C &kp V  &kp B      &kp N &kp  M &kp COMMA &kp DOT &kp FSLH  &trans
+                     &updir &lt 1 ESC &kp SPACE      &kp BSPC &lt 2 RS(RC(V)) &pnp
+        >;
+      };
+      1 {
+        bindings = <
+          &trans &kp  N1       &kp N2  &kp N3   &kp N4    &kp N5         &kp N6    &kp  N7   &kp N8     &kp N9     &kp N0       &trans
+          &trans HRML(EXCL,        AT,     HASH,    DLLR) &kp PRCNT      &kp CARET HRMR(AMPS,    ASTRK,     LPAR,      RPAR)    &trans
+          &trans &kp  C_VOL_DN &kp TAB &kp CAPS &kp TILDE &kp GRAVE      &kp LEFT  &kp  DOWN &kp UP     &kp RIGHT  &kp C_VOL_UP &trans
+                                                 &none &trans &none      &none &none &none
+        >;
+      };
+      2 {
+        bindings = <
+          &trans &bootloader &bt BT_NXT &none  &none  &none       &none  &none  &none  &none  &none   &trans
+          &trans &bt BT_CLR  &bt BT_PRV &none  &none  &none       &none  &none  &none  &none  &none   &trans
+          &trans &kp F1      &kp F2     &kp F3 &kp F4 &kp F5      &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &trans
+                                           &none &none &none      &none &trans &none
+        >;
+      };
+  };
+
+  combos {
+    compatible = "zmk,combos";
+      //    name       output         pos.
+      COMBO(ru_ent,    &kp RET,       4 7)
+      COMBO(dk_eql,    &kp EQUAL,     15 20)
+      COMBO(gh_quot,   &td_quot_dquo, 17 18)
+      COMBO(ty_coln,   &kp COLON,     5 6)
+      COMBO(bn_unds,   &kp UNDER,     29 30)
+      COMBO(er_cbkt,   &td_cbrkt,     3 4)
+      COMBO(ui_brkt,   &td_brkt,      7 8)
+      COMBO(ccom_plus, &kp PLUS,      27 32)
+      COMBO(ei_bsls,   &td_bsls_pipe, 3 8)
+      COMBO(vm_mins,   &td_min_dash,  28 31)
+      COMBO(fj_capw,   &caps_word,    16 19)
+  };
+};
