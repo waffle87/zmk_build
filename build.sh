@@ -13,7 +13,7 @@ build() {
     printf "building ${GREEN}$1${NORMAL} for ${BLUE}$2${NORMAL}...\n"
     (cd $ZMK_DIR/app
         MODULE_CMD=""
-        if [ -n $3 ]; then
+        if [ "$3" ]; then
             MODULE_CMD="-DZMK_EXTRA_MODULES=$HOME/git/zmk-build/$3"
         fi
         west build -p always -b $2 -- -DSHIELD=$1 \
