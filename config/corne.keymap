@@ -1,4 +1,4 @@
-// Copyright 2024 jack (@waffle87)
+// Copyright 2024 jack@pngu.org
 // SPDX-License-Identifier: MIT
 
 #include <behaviors.dtsi>
@@ -37,17 +37,19 @@
 
   combos {
     compatible = "zmk,combos";
-      //    name       output         pos.
-      COMBO(ru_ent,    &kp RET,       4 7)
-      COMBO(dk_eql,    &kp EQUAL,     15 20)
-      COMBO(gh_quot,   &td_quot_dquo, 17 18)
-      COMBO(ty_coln,   &kp COLON,     5 6)
-      COMBO(bn_unds,   &kp UNDER,     29 30)
-      COMBO(er_cbkt,   &td_cbrkt,     3 4)
-      COMBO(ui_brkt,   &td_brkt,      7 8)
-      COMBO(ccom_plus, &kp PLUS,      27 32)
-      COMBO(ei_bsls,   &td_bsls_pipe, 3 8)
-      COMBO(vm_mins,   &td_min_dash,  28 31)
-      COMBO(fj_capw,   &caps_word,    16 19)
+      //    name     output        pos.
+      COMBO(we_eqal, &kp EQUAL,    2 3)
+      COMBO(er_cbkt, &td_cbrkt,    3 4)
+      COMBO(rt_bsls, &kp BSLS,     4 5)
+      COMBO(yu_quot, &kp QUOT,     6 7)
+      COMBO(ui_brkt, &td_brkt,     7 8)
+      COMBO(io_mins, &td_min_dash, 8 9)
+      COMBO(sd_plus, &kp PLUS,     12 13)
+      COMBO(df_coln, &kp COLON,    13 14)
+      COMBO(fg_pipe, &kp PIPE,     14 15)
+      COMBO(hj_dquo, &kp DQUO,     16 17)
+      COMBO(jk_entr, &kp ENTER,    17 18)
+      COMBO(kl_unds, &kp UNDER,    18 19)
+      COMBO(fj_capw, &caps_word,   16 19)
   };
 };

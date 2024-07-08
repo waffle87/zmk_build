@@ -1,4 +1,4 @@
-// Copyright 2024 jack (@waffle87)
+// Copyright 2024 jack@pngu.org
 // SPDX-License-Identifier: MIT
 
 #include <behaviors.dtsi>
@@ -8,46 +8,49 @@
 
 / {
   keymap {
-  compatible = "zmk,keymap";
-    0 {
-      bindings = <
-        &kp  Q &kp W &kp E &kp R  &kp T        &kp Y &kp  U &kp I     &kp O   &kp P
-        HRML(A,    S,    D,    F) &kp G        &kp H HRMR(J,    K,        L,      SEMI)
-        &kp  Z &kp X &kp C &kp V  &kp B        &kp N &kp  M &kp COMMA &kp DOT &kp FSLH
-                    &lt 1 ESC &kp SPACE        &kp BSPC &lt 2 RS(RC(V))
-      >;
+    compatible = "zmk,keymap";
+      0 {
+        bindings = <
+          &kp  Q &kp W &kp E &kp R  &kp T        &kp Y &kp  U &kp I     &kp O   &kp P
+          HRML(A,    S,    D,    F) &kp G        &kp H HRMR(J,    K,        L,      SEMI)
+          &kp  Z &kp X &kp C &kp V  &kp B        &kp N &kp  M &kp COMMA &kp DOT &kp FSLH
+                      &lt 1 ESC &kp SPACE        &kp BSPC &lt 2 RS(RC(V))
+        >;
+      };
+      1 {
+        bindings = <
+          &kp  N1       &kp N2  &kp N3   &kp N4    &kp N5           &kp N6    &kp  N7   &kp N8     &kp N9     &kp N0
+          HRML(EXCL,        AT,     HASH,    DLLR) &kp PRCNT        &kp CARET HRMR(AMPS,    ASTRK,     LPAR,      RPAR)
+          &kp  C_VOL_DN &kp TAB &kp CAPS &kp TILDE &kp GRAVE        &kp LEFT  &kp  DOWN &kp UP     &kp RIGHT  &kp C_VOL_UP
+                                               &trans &trans        &trans &pnp
+        >;
+      };
+      2 {
+        bindings = <
+          &bootloader &bt BT_NXT &none  &none  &none        &none  &none  &none  &none  &none
+          &bt BT_CLR  &bt BT_PRV &none  &none  &none        &none  &none  &none  &none  &none
+          &kp F1      &kp F2     &kp F3 &kp F4 &kp F5       &kp F6 &kp F7 &kp F8 &kp F9 &kp F10
+                                        &trans &trans       &trans &trans
+        >;
+      };
     };
-    1 {
-      bindings = <
-        &kp  N1       &kp N2  &kp N3   &kp N4    &kp N5           &kp N6    &kp  N7   &kp N8     &kp N9     &kp N0
-        HRML(EXCL,        AT,     HASH,    DLLR) &kp PRCNT        &kp CARET HRMR(AMPS,    ASTRK,     LPAR,      RPAR)
-        &kp  C_VOL_DN &kp TAB &kp CAPS &kp TILDE &kp GRAVE        &kp LEFT  &kp  DOWN &kp UP     &kp RIGHT  &kp C_VOL_UP
-                                             &trans &trans        &trans &pnp
-      >;
-    };
-    2 {
-      bindings = <
-        &bootloader &bt BT_NXT &none  &none  &none        &none  &none  &none  &none  &none
-        &bt BT_CLR  &bt BT_PRV &none  &none  &none        &none  &none  &none  &none  &none
-        &kp F1      &kp F2     &kp F3 &kp F4 &kp F5       &kp F6 &kp F7 &kp F8 &kp F9 &kp F10
-                                      &trans &trans       &trans &trans
-      >;
-    };
-  };
 
   combos {
     compatible = "zmk,combos";
-    //    name       output         pos.
-    COMBO(ru_ent,    &kp RET,       3 6)
-    COMBO(dk_eql,    &kp EQUAL,     12 17)
-    COMBO(gh_quot,   &td_quot_dquo, 14 15)
-    COMBO(ty_coln,   &kp COLON,     4 5)
-    COMBO(bn_unds,   &kp UNDER,     24 25)
-    COMBO(er_cbkt,   &td_cbrkt,     2 3)
-    COMBO(ui_brkt,   &td_brkt,      6 7)
-    COMBO(ccom_plus, &kp PLUS,      22 27)
-    COMBO(ei_bsls,   &td_bsls_pipe, 2 7)
-    COMBO(vm_mins,   &td_min_dash,     23 26)
-    COMBO(fj_capw,   &caps_word,    13 16)
+      //    name     output        pos.
+      COMBO(we_eqal, &kp EQUAL,    1 2)
+      COMBO(er_cbkt, &td_cbrkt,    2 3)
+      COMBO(rt_bsls, &kp BSLS,     3 4)
+      COMBO(yu_quot, &kp QUOT,     5 6)
+      COMBO(ui_brkt, &td_brkt,     6 7)
+      COMBO(io_mins, &td_min_dash, 7 8)
+      COMBO(sd_plus, &kp PLUS,     11 12)
+      COMBO(df_coln, &kp COLON,    12 13)
+      COMBO(fg_pipe, &kp PIPE,     13 14)
+      COMBO(hj_dquo, &kp DQUO,     15 16)
+      COMBO(jk_entr, &kp ENTER,    16 17)
+      COMBO(kl_unds, &kp UNDER,    17 18)
+      COMBO(fj_capw, &caps_word,   15 18)
+
   };
 };

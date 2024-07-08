@@ -1,7 +1,7 @@
 ### zmk build repository
 my [zmk](https://zmk.dev) configuration & keyboard code
 
-![keyboard](https://i.imgur.com/bCRPsDyh.jpg)
+![keyboard](https://i.imgur.com/bCRPsDy.jpg)
 
 ### misc
 * [`util.h`](util.h) contains some simple c macros for combos, 2-key tap dance, & home-row mods.

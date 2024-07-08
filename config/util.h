@@ -1,6 +1,7 @@
-// Copyright 2024 jack (@waffle87)
+// Copyright 2024 jack@pngu.org
 // SPDX-License-Identifier: MIT
 
+// clang-format off
 #define COMBO(name, keypress, keypos) \
 combo_##name {                        \
    timeout-ms = <50>;                 \
@@ -43,8 +44,6 @@ td_##name: name {                             \
       tapping-term-ms = <210>;
       bindings = <&kp C_PLAY>, <&kp C_NEXT>, <&kp C_PREV>;
     };
-    TAP_DANCE(bsls_pipe, &kp BSLH, &kp PIPE)
-    TAP_DANCE(quot_dquo, &kp SQT,  &kp DQT)
     TAP_DANCE(cbrkt,     &kp LBRC, &kp RBRC)
     TAP_DANCE(brkt,      &kp LBKT, &kp RBKT)
     TAP_DANCE(min_dash,  &kp MINUS, &emdash)
@@ -67,3 +66,4 @@ td_##name: name {                             \
     };
   };
 };
+// clang-format on
