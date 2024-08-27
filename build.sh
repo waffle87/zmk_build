@@ -14,10 +14,10 @@ build() {
     (cd $ZMK_DIR/app
         MODULE_CMD=""
         if [ "$3" ]; then
-            MODULE_CMD="-DZMK_EXTRA_MODULES=$HOME/git/zmk-build/$3"
+            MODULE_CMD="-DZMK_EXTRA_MODULES=$HOME/git/zmk_build/$3"
         fi
         west build -p always -b $2 -- -DSHIELD=$1 \
-            -DZMK_CONFIG=$HOME/git/zmk-build/config $MODULE_CMD
+            -DZMK_CONFIG=$HOME/git/zmk_build/config $MODULE_CMD
 
         read -p "${BOLD}flash? (y/n) ${NORMAL}" yn
         case $yn in

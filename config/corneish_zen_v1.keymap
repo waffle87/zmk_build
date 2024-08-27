@@ -40,16 +40,16 @@
       //    name     output        pos.
       COMBO(we_eqal, &kp EQUAL,    2 3)
       COMBO(er_cbkt, &td_cbrkt,    3 4)
-      COMBO(rt_bsls, &kp BSLS,     4 5)
+      COMBO(rt_bsls, &kp BSLH,     4 5)
       COMBO(yu_quot, &kp QUOT,     6 7)
       COMBO(ui_brkt, &td_brkt,     7 8)
       COMBO(io_mins, &td_min_dash, 8 9)
-      COMBO(sd_plus, &kp PLUS,     12 13)
-      COMBO(df_coln, &kp COLON,    13 14)
-      COMBO(fg_pipe, &kp PIPE,     14 15)
-      COMBO(hj_dquo, &kp DQUO,     16 17)
-      COMBO(jk_entr, &kp ENTER,    17 18)
-      COMBO(kl_unds, &kp UNDER,    18 19)
+      COMBO(sd_plus, &kp PLUS,     14 15)
+      COMBO(df_coln, &kp COLON,    15 16)
+      COMBO(fg_pipe, &kp PIPE,     16 17)
+      COMBO(hj_dquo, &kp DQT,      17 18)
+      COMBO(jk_entr, &kp ENTER,    18 19)
+      COMBO(kl_unds, &kp UNDER,    19 20)
       COMBO(fj_capw, &caps_word,   16 19)
   };
 };
