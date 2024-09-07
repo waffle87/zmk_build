@@ -47,9 +47,9 @@
       COMBO(sd_plus, &kp PLUS,     14 15)
       COMBO(df_coln, &kp COLON,    15 16)
       COMBO(fg_pipe, &kp PIPE,     16 17)
-      COMBO(hj_dquo, &kp DQT,      17 18)
-      COMBO(jk_entr, &kp ENTER,    18 19)
-      COMBO(kl_unds, &kp UNDER,    19 20)
+      COMBO(hj_dquo, &kp DQT,      18 19)
+      COMBO(jk_entr, &kp ENTER,    19 20)
+      COMBO(kl_unds, &kp UNDER,    20 21)
       COMBO(fj_capw, &caps_word,   16 19)
   };
 };
