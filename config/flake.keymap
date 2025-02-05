@@ -1,0 +1,56 @@
+// Copyright 2024 jack@pngu.org
+// SPDX-License-Identifier: MIT
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include "util.h"
+
+/ {
+  keymap {
+    compatible = "zmk,keymap";
+      0 {
+        bindings = <
+          &kp  Q &kp W &kp E &kp R  &kp T        &kp Y &kp  U &kp I     &kp O   &kp P
+          HRML(A,    S,    D,    F) &kp G        &kp H HRMR(J,    K,        L,      SEMI)
+          &kp  Z &kp X &kp C &kp V  &kp B        &kp N &kp  M &kp COMMA &kp DOT &kp FSLH
+          &none  &updir  &lt 1 ESC  &kp SPACE  &none       &none   &kp BSPC  &lt 2 RS(RC(V)) &pnp  &none
+        >;
+      };
+      1 {
+        bindings = <
+          &kp  N1       &kp N2  &kp N3   &kp N4    &kp N5           &kp N6    &kp  N7   &kp N8     &kp N9     &kp N0
+          HRML(EXCL,        AT,     HASH,    DLLR) &kp PRCNT        &kp CARET HRMR(AMPS,    ASTRK,     LPAR,      RPAR)
+          &kp  C_VOL_DN &kp TAB &kp CAPS &kp TILDE &kp GRAVE        &kp LEFT  &kp  DOWN &kp UP     &kp RIGHT  &kp C_VOL_UP
+          &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+
+        >;
+      };
+      2 {
+        bindings = <
+          &bootloader &bt BT_NXT &none  &none  &none        &none  &none  &none  &none  &none
+          &bt BT_CLR  &bt BT_PRV &none  &none  &none        &none  &none  &none  &none  &none
+          &kp F1      &kp F2     &kp F3 &kp F4 &kp F5       &kp F6 &kp F7 &kp F8 &kp F9 &kp F10
+          &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+        >;
+      };
+    };
+
+  combos {
+    compatible = "zmk,combos";
+      //    name     output        pos.
+      COMBO(we_eqal, &kp EQUAL,    1 2)
+      COMBO(er_cbkt, &td_cbrkt,    2 3)
+      COMBO(rt_bsls, &kp BSLH,     3 4)
+      COMBO(yu_quot, &kp QUOT,     5 6)
+      COMBO(ui_brkt, &td_brkt,     6 7)
+      COMBO(io_mins, &td_min_dash, 7 8)
+      COMBO(sd_plus, &kp PLUS,     11 12)
+      COMBO(df_coln, &kp COLON,    12 13)
+      COMBO(fg_pipe, &kp PIPE,     13 14)
+      COMBO(hj_dquo, &kp DQT,      15 16)
+      COMBO(jk_entr, &kp ENTER,    16 17)
+      COMBO(kl_unds, &kp UNDER,    17 18)
+      COMBO(fj_capw, &caps_word,   15 18)
+
+  };
+};

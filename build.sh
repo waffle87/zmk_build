@@ -35,7 +35,7 @@ build() {
 }
 
 printf "${BOLD}firmware to build${NORMAL}...\n"
-printf "(1) corne\t(2) corne-ish zen\t(3) revxlp\t(4) sweep\t(5) settings reset:\t"
+printf "(1) corne\t(2) corne-ish zen\t(3) revxlp\t(4) sweep\t(5) flake\t(6) settings reset:\t"
 read opt;
 case $opt in
     1)
@@ -54,6 +54,10 @@ case $opt in
         build splitkb_aurora_sweep_right nice_nano_v2
         ;;
     5)
+        build flake_left nice_nano_v2 "flake"
+        build flake_right nice_nano_v2 "flake"
+        ;;
+    6)
         printf "${BOLD}select microcontroller${NORMAL}...\n"
         printf "(1) nice nano\t(2) nice nano v2\t(3) xiao ble:\t"
         read val;

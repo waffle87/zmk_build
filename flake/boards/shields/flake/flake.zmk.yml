@@ -1,0 +1,11 @@
+file_format: "1"
+id: flake
+name: flake
+type: shield
+url: https://github.com/anywhy-io/flake
+requires: [pro_micro]
+features:
+  - keys
+siblings:
+  - flake_left
+  - flake_right
