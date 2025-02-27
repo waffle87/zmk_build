@@ -18,18 +18,6 @@ build() {
         fi
         west build -p always -b $2 -- -DSHIELD=$1 \
             -DZMK_CONFIG=$HOME/git/zmk_build/config $MODULE_CMD
-
-        read -p "${BOLD}flash? (y/n) ${NORMAL}" yn
-        case $yn in
-            [Yy]*)
-                printf "${YELLOW}enter bootloader${NORMAL}...\n"
-                sleep 5
-                udisksctl mount -b /dev/sdb
-                west flash
-                ;;
-            [Nn]*) cp build/zephyr/zmk.uf2 ~/$1.uf2 ;;
-            * ) printf "${RED}invalid entry${NORMAL}\n" ;;
-        esac
     )
     printf "${GREEN}complete${NORMAL}\n"
 }
