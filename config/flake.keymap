@@ -10,10 +10,10 @@
     compatible = "zmk,keymap";
       0 {
         bindings = <
-          &kp  Q &kp W &kp E &kp R  &kp T        &kp Y &kp  U &kp I     &kp O   &kp P
-          HRML(A,    S,    D,    F) &kp G        &kp H HRMR(J,    K,        L,      SEMI)
-          &kp  Z &kp X &kp C &kp V  &kp B        &kp N &kp  M &kp COMMA &kp DOT &kp FSLH
-          &none  &none  &updir  &lt 1 ESC  &kp SPACE       &kp BSPC  &lt 2 RS(RC(V)) &pnp  &none &none
+          &kp  Q &kp W &kp E &kp R  &kp T                 &kp Y &kp  U &kp I     &kp O   &kp P
+          HRML(A,    S,    D,    F) &kp G                 &kp H HRMR(J,    K,        L,      SEMI)
+          &kp  Z &kp X &kp C &kp V  &kp B                 &kp N &kp  M &kp COMMA &kp DOT &kp FSLH
+          &none  &updir  &lt 1 ESC  &kp SPACE &none &none &kp BSPC  &lt 2 RS(RC(V)) &pnp  &none
         >;
       };
       1 {
@@ -50,7 +50,7 @@
       COMBO(hj_dquo, &kp DQT,      15 16)
       COMBO(jk_entr, &kp ENTER,    16 17)
       COMBO(kl_unds, &kp UNDER,    17 18)
-      COMBO(fj_capw, &caps_word,   15 18)
+      COMBO(fj_capw, &caps_word,   13 16)
 
   };
 };

@@ -9,12 +9,12 @@ combo_##name {                        \
    key-positions = <keypos>;          \
 };
 
-#define TAP_DANCE(name, keypress1, keypress2) \
-td_##name: name {                             \
-  compatible = "zmk,behavior-tap-dance";      \
-  #binding-cells = <0>;                       \
-  tapping-term-ms = <200>;                    \
-  bindings = <keypress1>, <keypress2>;        \
+#define TAP_DANCE(name, kp1, kp2, kp3)   \
+td_##name: name {                        \
+  compatible = "zmk,behavior-tap-dance"; \
+  #binding-cells = <0>;                  \
+  tapping-term-ms = <200>;               \
+  bindings = <kp1>, <kp2>, <kp3>;        \
 };
 
 #define HRML(k1,k2,k3,k4) &hm LALT k1 &hm LGUI k2 &hm LCTRL k3 &hm LSHFT k4
@@ -41,9 +41,9 @@ td_##name: name {                             \
       tapping-term-ms = <210>;
       bindings = <&kp C_PLAY>, <&kp C_NEXT>, <&kp C_PREV>;
     };
-    TAP_DANCE(cbrkt,     &kp LBRC, &kp RBRC)
-    TAP_DANCE(brkt,      &kp LBKT, &kp RBKT)
-    TAP_DANCE(min_dash,  &kp MINUS, &emdash)
+    TAP_DANCE(cbrkt,     &kp LBRC, &kp RBRC, &none)
+    TAP_DANCE(brkt,      &kp LBKT, &kp RBKT, &none)
+    TAP_DANCE(min_dash,  &kp MINUS, &dbl_min, &emdash)
   };
 
   macros {
@@ -52,12 +52,18 @@ td_##name: name {                             \
       #binding-cells = <0>;
       bindings = <&macro_tap &kp DOT &kp DOT &kp FSLH>;
     };
+    dbl_min: dbl_min {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings = <&macro_tap &kp MINUS &kp MINUS>;
+    };
     emdash: emdash {
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
       bindings = <&macro_press &kp LSHFT &kp LCTRL>,
                  <&macro_tap &kp U &kp N2 &kp N0 &kp N1 &kp N4>,
-                 <&macro_release &kp LSHFT &kp LCTRL>;
+                 <&macro_release &kp LSHFT &kp LCTRL>,
+                 <&macro_tap &kp SPACE &kp SPACE>;
     };
   };
 };

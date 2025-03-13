@@ -18,6 +18,7 @@ build() {
         fi
         west build -p always -b $2 -- -DSHIELD=$1 \
             -DZMK_CONFIG=$HOME/git/zmk_build/config $MODULE_CMD
+        cp build/zephyr/zmk.uf2 ~/$1.uf2
     )
     printf "${GREEN}complete${NORMAL}\n"
 }
