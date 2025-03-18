@@ -1,0 +1,10 @@
+if SHIELD_FLAKE_DONGLE
+  config ZMK_KEYBOARD_NAME
+    default "Flake Dongle"
+  config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+  config ZMK_SPLIT
+    default y
+  config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
+    default 2
+endif

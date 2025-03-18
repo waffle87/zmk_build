@@ -39,6 +39,7 @@ case $opt in
         build splitkb_aurora_sweep_right nice_nano_v2
         ;;
     4)
+        build flake_dongle nice_nano_v2 "flake_dongle"
         build flake_left nice_nano_v2 "flake"
         build flake_right nice_nano_v2 "flake"
         ;;
