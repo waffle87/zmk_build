@@ -1,4 +1,4 @@
 if SHIELD_REVXLP
-config ZMK_KEYBOARD_NAME
-  default "revxlp"
+  config ZMK_KEYBOARD_NAME
+    default "revxlp"
 endif
