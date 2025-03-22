@@ -1,4 +1,6 @@
 if SHIELD_FLAKE_LEFT || SHIELD_FLAKE_RIGHT
+  config ZMK_SLEEP
+    default y
   config ZMK_SPLIT
     default y
   config ZMK_SPLIT_ROLE_CENTRAL
