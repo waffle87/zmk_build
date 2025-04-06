@@ -13,7 +13,7 @@
           &kp  Q &kp W &kp E &kp R  &kp T                 &kp Y &kp  U &kp I     &kp O   &kp P
           HRML(A,    S,    D,    F) &kp G                 &kp H HRMR(J,    K,        L,      SEMI)
           &kp  Z &kp X &kp C &kp V  &kp B                 &kp N &kp  M &kp COMMA &kp DOT &kp FSLH
-          &none  &updir  &lt 1 ESC  &kp SPACE &none &none &kp BSPC  &lt 2 RS(RC(V)) &pnp  &none
+          &none &none  &updir  &lt 1 ESC  &kp SPACE &kp BSPC  &lt 2 RS(RC(V)) &pnp  &none &none
         >;
       };
       1 {
