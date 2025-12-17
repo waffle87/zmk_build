@@ -1,13 +1,14 @@
 #!/bin/sh
-ZMK_DIR=~/git/zmk
 RED=$(tput setaf 1)
 GREEN=$(tput setaf 2)
 YELLOW=$(tput setaf 3)
 BLUE=$(tput setaf 4)
 BOLD=$(tput bold)
 NORMAL=$(tput sgr0)
-source $ZMK_DIR/.venv/bin/activate
 set -e
+
+ZMK_DIR=$HOME/git/zmk
+source $ZMK_DIR/.venv/bin/activate
 
 build() {
     printf "building ${GREEN}$1${NORMAL} for ${BLUE}$2${NORMAL}...\n"

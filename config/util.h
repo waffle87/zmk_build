@@ -41,9 +41,7 @@ td_##name: name {                        \
       tapping-term-ms = <210>;
       bindings = <&kp C_PLAY>, <&kp C_NEXT>, <&kp C_PREV>;
     };
-    TAP_DANCE(cbrkt,     &kp LBRC, &kp RBRC, &none)
-    TAP_DANCE(brkt,      &kp LBKT, &kp RBKT, &none)
-    TAP_DANCE(min_dash,  &kp MINUS, &dbl_min, &emdash)
+    TAP_DANCE(min_dash, &kp MINUS, &dbl_min, &emdash)
   };
 
   macros {
@@ -52,6 +50,16 @@ td_##name: name {                        \
       #binding-cells = <0>;
       bindings = <&macro_tap &kp DOT &kp DOT &kp FSLH>;
     };
+    leq: leq {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings = <&macro_tap &kp LT &kp EQUAL>;
+    }
+    geq: geq {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings = <&macro_tap &kp GT &kp EQUAL>;
+    }
     dbl_min: dbl_min {
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
