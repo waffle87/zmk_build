@@ -54,12 +54,12 @@ td_##name: name {                        \
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
       bindings = <&macro_tap &kp LT &kp EQUAL>;
-    }
+    };
     geq: geq {
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
       bindings = <&macro_tap &kp GT &kp EQUAL>;
-    }
+    };
     dbl_min: dbl_min {
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
