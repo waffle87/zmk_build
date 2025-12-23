@@ -10,34 +10,34 @@
     compatible = "zmk,keymap";
       0 {
         bindings = <
-          &kp  Q &kp W &kp E &kp R  &kp T                     &kp Y &kp  U &kp I     &kp O   &kp P
-          HRML(A,    S,    D,    F) &kp G                     &kp H HRMR(J,    K,        L,      SEMI)
-          &kp  Z &kp X &kp C &kp V  &kp B                     &kp N &kp  M &kp COMMA &kp DOT &kp FSLH
-                       &none &lt 1 ESC  &kp SPACE    &kp BSPC &mo 2     &none
+          &kp  Q &kp W &kp E &kp R  &kp T           &kp Y &kp  U &kp I     &kp O   &kp P
+          HRML(A,    S,    D,    F) &kp G           &kp H HRMR(J,    K,        L,      SEMI)
+          &kp  Z &kp X &kp C &kp V  &kp B           &kp N &kp  M &kp COMMA &kp DOT &kp FSLH
+          &none &none  &none  &lt 1 ESC  &kp SPACE &kp BSPC  &mo 2 &none  &none &none
         >;
       };
       1 {
         bindings = <
-          &kp  N1       &kp N2   &kp N3 &kp N4 &kp N5                     &kp N6   &kp  N7 &kp N8 &kp N9 &kp N0
-          HRML(X,           X,       X,     X) &kp TAB                    &kp LEFT HRMR(DOWN,  UP,    RIGHT, CAPS)
-          &kp  C_VOL_DN &kp C_PP &trans &updir &trans                     &trans   &trans  &trans &trans &kp C_VOL_UP
-                                        &trans &trans &trans       &trans &mo 3    &trans
+          &kp N1        &kp N2 &kp N3 &kp N4 &kp N5           &kp N6    &kp  N7   &kp N8     &kp N9     &kp N0
+          &trans        &trans &trans &trans &kp TAB        &kp LEFT DOWN    UP     RIGHT      CAPS
+          &kp C_VOL_DN  &trans &trans &trans &trans        &trans  &trans &trans     &trans  &kp C_VOL_UP
+          &trans &trans &trans &trans &trans &trans &mo 3 &trans &trans &trans
         >;
       };
       2 {
         bindings = <
-          &kp  GRAVE     &leq     &geq     &td_min_dash &kp PIPE                     &kp CARET &kp LBRC  &kp RBRC  &kp DLLR  &kp BSLH 
-          HRML(EXCL,     STAR,    FSLH,    EQUAL)       &kp AMPS                     &kp HASH HRMR(LPAR,     RPAR,     SQT,      DQT)
-          &kp  TILDE &kp PLUS &kp LBKT &kp RBKT         &kp PRCNT                    &kp AT    &kp COLON &trans    &trans    &trans
-                                                 &trans &trans &trans         &trans &trans &trans
+          &kp GRAVE &leq &geq  &td_min_dash   &kp PIPE        &kp CARET  &kp LBRC  &kp RBRC  &kp DLLR  &kp BSLH 
+          &kp EXCL  &kp STAR &kp FSLH  &kp EQUAL  &kp AMPS        &kp HASH  &kp LPAR  &kp RPAR  &kp SQT  &kp DQT
+          &kp TILDE &kp PLUS     &kp LBKT &kp RBKT &kp PRCNT       &kp AT &kp COLON &trans &trans &trans
+          &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
         >;
       };
       3 {
         bindings = <
-          &bt BT_NXT &none  &none  &none  &none                     &none  &none  &none  &none  &bt BT_CLR
-          &bt BT_PRV &none  &none  &none  &none                     &none  &none  &none  &none  &bootloader
-          &kp F1     &kp F2 &kp F3 &kp F4 &kp F5                    &kp F6 &kp F7 &kp F8 &kp F9 &kp F10
-                                   &trans &trans &trans      &trans &trans &trans
+          &bt BT_NXT &none &none  &none  &none        &none  &none  &none  &none  &bt BT_CLR
+          &bt BT_PRV &none &none  &none  &none        &none  &none  &none  &none  &bootloader
+          &kp F1      &kp F2     &kp F3 &kp F4 &kp F5       &kp F6 &kp F7 &kp F8 &kp F9 &kp F10
+          &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
         >;
       };
     };
@@ -48,5 +48,6 @@
       COMBO(df_unds, &kp UNDER,  12 13)
       COMBO(jk_entr, &kp ENTER,  16 17)
       COMBO(fj_capw, &caps_word, 13 16)
+
   };
 };
