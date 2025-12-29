@@ -19,15 +19,15 @@
       1 {
         bindings = <
           &kp N1        &kp N2 &kp N3 &kp N4 &kp N5           &kp N6    &kp  N7   &kp N8     &kp N9     &kp N0
-          &trans        &trans &trans &trans &kp TAB        &kp LEFT DOWN    UP     RIGHT      CAPS
-          &kp C_VOL_DN  &trans &trans &trans &trans        &trans  &trans &trans     &trans  &kp C_VOL_UP
+          &trans        &trans &updir &recall &kp TAB        &kp LEFT HRMR(DOWN    UP     RIGHT      CAPS)
+          &kp C_VOL_DN  &kp C_PP &trans &trans &trans        &trans  &trans &trans     &trans  &kp C_VOL_UP
           &trans &trans &trans &trans &trans &trans &mo 3 &trans &trans &trans
         >;
       };
       2 {
         bindings = <
           &kp GRAVE &leq &geq  &td_min_dash   &kp PIPE        &kp CARET  &kp LBRC  &kp RBRC  &kp DLLR  &kp BSLH 
-          &kp EXCL  &kp STAR &kp FSLH  &kp EQUAL  &kp AMPS        &kp HASH  &kp LPAR  &kp RPAR  &kp SQT  &kp DQT
+          &kp EXCL  &kp STAR &pl_asgn  &kp EQUAL  &kp AMPS        &kp HASH  HRMR(LPAR  RPAR   SQT   DQT)
           &kp TILDE &kp PLUS     &kp LBKT &kp RBKT &kp PRCNT       &kp AT &kp COLON &trans &trans &trans
           &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
         >;

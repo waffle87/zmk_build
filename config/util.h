@@ -60,6 +60,16 @@ td_##name: name {                        \
       #binding-cells = <0>;
       bindings = <&macro_tap &kp GT &kp EQUAL>;
     };
+    pl_asgn: pl_asgn {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings = <&macro_tap &kp PLUS  &kp EQUAL>;
+    };
+    recall: recall {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings = <&macro_tap &kp DLLR  &kp UNDER>;
+    };
     dbl_min: dbl_min {
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
