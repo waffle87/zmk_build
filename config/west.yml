@@ -1,11 +1,16 @@
 manifest:
   remotes:
-    - name: zmkfirmware
-      url-base: https://github.com/zmkfirmware
+    - name: waffle87
+      url-base: https://github.com/waffle87
   projects:
-    - name: zmk
-      remote: zmkfirmware
+    - name: revxlp
+      remote: waffle87
       revision: main
-      import: app/west.yml
+    - name: flake_dongle
+      remote: waffle87
+      revision: main
+    - name: flake
+      remote: waffle87
+      revision: main
   self:
     path: config
