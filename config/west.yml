@@ -5,12 +5,12 @@ manifest:
   projects:
     - name: revxlp
       remote: waffle87
-      revision: main
+      revision: master
     - name: flake_dongle
       remote: waffle87
-      revision: main
+      revision: master
     - name: flake
       remote: waffle87
-      revision: main
+      revision: master
   self:
     path: config
