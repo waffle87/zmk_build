@@ -3,13 +3,7 @@ manifest:
     - name: waffle87
       url-base: https://github.com/waffle87
   projects:
-    - name: revxlp
-      remote: waffle87
-      revision: master
-    - name: flake_dongle
-      remote: waffle87
-      revision: master
-    - name: flake
+    - name: zmk-build
       remote: waffle87
       revision: master
   self:
