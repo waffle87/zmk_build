@@ -29,20 +29,20 @@ printf "(1) flake\t(2) revxlp\t(3) settings reset:\t"
 read opt;
 case $opt in
     1)
-        build flake_dongle nice_nano_v2 "flake_dongle"
-        build flake_left nice_nano_v2 "flake"
-        build flake_right nice_nano_v2 "flake"
+        build flake_dongle nice_nano "flake_dongle"
+        build flake_left nice_nano "flake"
+        build flake_right nice_nano "flake"
         ;;
     2)
-        build revxlp seeeduino_xiao_ble "revxlp"
+        build revxlp xiao_ble "revxlp"
         ;;
     3)
         printf "${BOLD}select microcontroller${NORMAL}...\n"
         printf "(1) nice nano v2\t(2) xiao ble:\t"
         read val;
         case $val in
-            1) MCU="nice_nano_v2" ;;
-            2) MCU="seeeduino_xiao_ble" ;;
+            1) MCU="nice_nano" ;;
+            2) MCU="xiao_ble" ;;
             *) printf "${RED}invalid entry${NORMAL}\n" ;;
         esac
         build settings_reset $MCU
