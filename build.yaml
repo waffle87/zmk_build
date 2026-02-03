@@ -1,13 +1,5 @@
 ---
 include:
-  - board: xiao_ble
-    shield: revxlp
-  - board: nice_nano
-    shield: flake_dongle
-  - board: nice_nano
-    shield: flake_left
-  - board: nice_nano
-    shield: flake_right
   - board: blecorne_left
     shield: nice_view
   - board: blecorne_right
