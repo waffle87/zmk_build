@@ -4,13 +4,15 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: boardsource
       url-base: https://github.com/boardsource
+    - name: waffle87
+      url-base: https://github.com/waffle87
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: main
       import: app/west.yml
     - name: wireless-corne_zmk_config
-      remote: boardsource
+      remote: waffle87
       revision: master
   self:
     path: config
