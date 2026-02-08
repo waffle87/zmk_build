@@ -26,7 +26,7 @@
       };
       2 {
         bindings = <
-          &kp GRAVE &leq &geq  &td_min_dash   &kp PIPE        &kp CARET  &kp LBRC  &kp RBRC  &kp DLLR  &kp BSLH 
+          &kp GRAVE &leq &geq  &kp MINUS   &kp PIPE        &kp CARET  &kp LBRC  &kp RBRC  &kp DLLR  &kp BSLH 
           &kp EXCL  &kp STAR &pl_asgn  &kp EQUAL  &kp AMPS        &kp HASH  HRMR(LPAR,  RPAR,   SQT,   DQT)
           &kp TILDE &kp PLUS     &kp LBKT &kp RBKT &kp PRCNT       &kp AT &kp COLON &trans &trans &trans
           &trans &trans &trans &trans &trans &trans
