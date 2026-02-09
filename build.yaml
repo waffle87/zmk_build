@@ -2,6 +2,6 @@
 include:
   - board: blecorne_left
     shield: nice_view
-    cmake-args: -DCONFIG_DISPLAY=y
+    cmake-args: -DCONFIG_ZMK_DISPLAY=y
   - board: blecorne_right
-    cmake-args: -DCONFIG_DISPLAY=n
+    cmake-args: -DCONFIG_ZMK_DISPLAY=n
