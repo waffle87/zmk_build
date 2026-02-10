@@ -25,11 +25,7 @@
 #define SYM 4
 #define UTIL 5
 
-/ {
-  chosen {
-    zmk,physical-layout = &foostan_corne_5col_layout;
-  };
-};
+ZMK_APPLY_MATRIX_TRANSFORM(five_column_transform)
 
 ZMK_HOLD_TAP(hrm,
   flavor = "tap-preferred";
