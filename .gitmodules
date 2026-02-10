@@ -1,3 +1,6 @@
 [submodule "zmk-helpers"]
-	path = zmk-helpers
+	path = modules/zmk-helpers
 	url = https://github.com/urob/zmk-helpers.git
+[submodule "modules/zmk-unicode"]
+	path = modules/zmk-unicode
+	url = https://github.com/urob/zmk-unicode.git
