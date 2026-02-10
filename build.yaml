@@ -1,7 +1,4 @@
 ---
 include:
   - board: blecorne_left
-    shield: nice_view
-    cmake-args: -DCONFIG_ZMK_DISPLAY=y
   - board: blecorne_right
-    cmake-args: -DCONFIG_ZMK_DISPLAY=n
