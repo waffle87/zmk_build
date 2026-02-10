@@ -3,51 +3,97 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-#include "util.h"
 
-/ {
-  keymap {
-    compatible = "zmk,keymap";
-      0 {
-        bindings = <
-          &kp  Q &kp W &kp E &kp R  &kp T           &kp Y &kp  U &kp I     &kp O   &kp P
-          HRML(A,    S,    D,    F) &kp G           &kp H HRMR(J,    K,        L,      SEMI)
-          &kp  Z &kp X &kp C &kp V  &kp B           &kp N &kp  M &kp COMMA &kp DOT &kp FSLH
-          &none &none  &none  &lt 1 ESC  &kp SPACE &kp BSPC  &mo 2 &none  &none &none
-        >;
-      };
-      1 {
-        bindings = <
-          &kp N1        &kp N2 &kp N3 &kp N4 &kp N5           &kp N6    &kp  N7   &kp N8     &kp N9     &kp N0
-          &trans        &trans &updir &recall &kp TAB        &kp LEFT HRMR(DOWN,    UP,     RIGHT,      CAPS)
-          &kp C_VOL_DN  &kp C_PP &trans &trans &trans        &trans  &trans &trans     &trans  &kp C_VOL_UP
-          &trans &trans &trans &trans &trans &trans &mo 3 &trans &trans &trans
-        >;
-      };
-      2 {
-        bindings = <
-          &kp GRAVE &leq &geq  &kp MINUS   &kp PIPE        &kp CARET  &kp LBRC  &kp RBRC  &kp DLLR  &kp BSLH 
-          &kp EXCL  &kp STAR &pl_asgn  &kp EQUAL  &kp AMPS        &kp HASH  HRMR(LPAR,  RPAR,   SQT,   DQT)
-          &kp TILDE &kp PLUS     &kp LBKT &kp RBKT &kp PRCNT       &kp AT &kp COLON &trans &trans &trans
-          &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-        >;
-      };
-      3 {
-        bindings = <
-          &bt BT_NXT &none &none  &none  &none        &none  &none  &none  &none  &bt BT_CLR
-          &bt BT_PRV &none &none  &none  &none        &none  &none  &none  &none  &bootloader
-          &kp F1      &kp F2     &kp F3 &kp F4 &kp F5       &kp F6 &kp F7 &kp F8 &kp F9 &kp F10
-          &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-        >;
-      };
-    };
+#include "zmk-helpers/helper.h"
+#include "zmk-helpers/key-labels/36.h"
 
-  combos {
-    compatible = "zmk,combos";
-      //    name     output      pos.
-      COMBO(df_unds, &kp UNDER,  12 13)
-      COMBO(jk_entr, &kp ENTER,  16 17)
-      COMBO(fj_capw, &caps_word, 13 16)
+#undef COMBO_TERM
+#define COMBO_TERM 50
 
-  };
+#define ___ &trans
+
+#define BASE 0
+#define LINUX 1
+#define MACOS 2
+#define NUM 3
+#define SYM 4
+#define UTIL 5
+
+ZMK_HOLD_TAP(hrm,
+  flavor = "tap-preferred";
+  tapping-term-ms = <130>;
+  quick-tap-ms = <160>;
+  bindings = <&kp>, <&kp>;
+)
+
+&lt {
+  tapping-term-ms = <100>;
 };
+
+ZMK_CONDITIONAL_LAYER(tri_layer_util, NUM SYM, UTIL)
+
+ZMK_TAP_DANCE(ply_nxt_prv,
+  tapping-term-ms = <200>;
+  bindings = <&kp C_PLAY>, <&kp C_NEXT>, <&kp C_PREV>;
+)
+
+ZMK_MOD_MORPH(bs_del_num,
+  bindings = <&kp BSPC>, <&kp DEL>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_MOD_MORPH(vol_up_dn,
+  bindings = <&kp C_VOL_UP>, <&kp C_VOL_DN>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+
+ZMK_MACRO(updir, bindings = <&kp DOT &kp DOT &kp FSLH>;)
+ZMK_MACRO(leq, bindings = <&kp LT &kp EQUAL>;)
+ZMK_MACRO(geq, bindings = <&kp GT &kp EQUAL>;)
+ZMK_MACRO(pl_asgn, bindings = <&kp PLUS  &kp EQUAL>;)
+ZMK_MACRO(recall, bindings = <&kp DLLR  &kp UNDER>;)
+
+ZMK_COMBO(df_unds, &kp UNDER, LM2 LM1, ALL)
+ZMK_COMBO(jk_entr, &kp ENTER, RM1 RM2, ALL)
+ZMK_COMBO(fj_cpwd, &caps_word, LM1 RM1, ALL)
+
+ZMK_LAYER(base_layer,
+  &kp Q         &kp W         &kp E         &kp R         &kp T             &kp Y         &kp U         &kp I         &kp O         &kp P
+  &kp A         &kp S         &kp D         &kp F         &kp G             &kp H         &kp J         &kp K         &kp L         &kp SEMI
+  &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH
+                              &lt NUM ESC   &kp SPACE     ___               ___           &bs_del_num   &mo SYM
+)
+
+ZMK_LAYER(linux_layer,
+  ___           ___           ___           ___           ___               ___           ___           ___           ___           ___
+  &hrm LALT A   &hrm LGUI S   &hrm LCTRL D  &hrm LSHFT F  ___               ___           &hrm RSHFT J  &hrm RCTRL K  &hrm RGUI L   &hrm RALT SEMI
+  ___           ___           ___           ___           ___               ___           ___           ___           ___           ___
+                              ___           ___           ___               ___           ___           ___
+)
+
+ZMK_LAYER(macos_layer,
+  ___           ___           ___           ___           ___               ___           ___           ___           ___           ___
+  &hrm LALT A   &hrm LCTRL S  &hrm LGUI D   &hrm LSHFT F  ___               ___           &hrm RSHFT J  &hrm RGUI K   &hrm RCTRL L  &hrm RALT SEMI
+  ___           ___           ___           ___           ___               ___           ___           ___           ___           ___
+                              ___           ___           ___               ___           ___           ___
+)
+
+ZMK_LAYER(numbers_layer,
+  &kp N1        &kp N2        &kp N3        &kp N4        &kp N5            &kp N6        &kp N7        &kp N8        &kp N9        &kp N0
+  ___           ___           &updir        &recall       &kp TAB           &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp CAPS
+  &vol_up_dn    &ply_nxt_prv  ___           ___           ___               ___           ___           ___           ___           ___
+                              ___           ___           ___               ___           ___           ___
+)
+
+ZMK_LAYER(symbols_layer,
+  &kp GRAVE     &leq          &geq          &kp MINUS     &kp PIPE          &kp CARET     &kp LBRC      &kp RBRC      &kp DLLR      &kp BSLH
+  &kp EXCL      &kp STAR      &pl_asgn      &kp EQUAL     &kp AMPS          &kp HASH      &kp LPAR      &kp RPAR      &kp SQT       &kp DQT
+  &kp TILDE     &kp PLUS      &kp LBKT      &kp RBKT      &kp PRCNT         &kp AT        &kp COLON     ___           ___           ___
+                              ___           ___           ___               ___           ___           ___
+)
+
+ZMK_LAYER(utility_layer,
+  &bt BT_CLR    &bt BT_NXT    ___           ___           ___               ___           ___           &tog LINUX    &tog MACOS    &bt BT_CLR
+  &bootloader   &bt BT_CLR    ___           ___           ___               ___           ___           ___           ___           &bootloader
+  &kp F1        &kp F2        &kp F3        &kp F4        &kp F5            &kp F6        &kp F7        &kp F8        &kp F9        &kp F10
+                              ___           ___           ___               ___           ___           ___
+)
