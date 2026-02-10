@@ -25,7 +25,11 @@
 #define SYM 4
 #define UTIL 5
 
-ZMK_APPLY_MATRIX_TRANSFORM(foostan_corne_5col_layout)
+/ {
+  chosen {
+    zmk,physical-layout = &foostan_corne_5col_layout;
+  };
+};
 
 ZMK_HOLD_TAP(hrm,
   flavor = "tap-preferred";
@@ -64,7 +68,6 @@ ZMK_MOD_MORPH(dash_mins,
   bindings = <&kp MINUS>, <&uc UC_EM_DASH>;
   mods = <(MOD_LSFT|MOD_RSFT)>;
 )
-
 
 ZMK_MACRO(updir, bindings = <&kp DOT &kp DOT &kp FSLH>;)
 ZMK_MACRO(leq, bindings = <&kp LT &kp EQUAL>;)
