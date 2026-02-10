@@ -1,32 +1,73 @@
 #!/bin/sh
+
 RED=$(tput setaf 1)
 GREEN=$(tput setaf 2)
 YELLOW=$(tput setaf 3)
 BLUE=$(tput setaf 4)
 BOLD=$(tput bold)
 NORMAL=$(tput sgr0)
+
 set -e
 
-ZMK_DIR=$HOME/git/zmk
-source $ZMK_DIR/.venv/bin/activate
+ZMK_DIR="${HOME}/git/zmk"
+MODULES_DIR="${HOME}/git/zmk_build/modules"
+CONFIG_DIR="${HOME}/git/zmk_build/config"
+BUILD_DIR="${HOME}/git/zmk_build"
+
+if [ ! -d "$ZMK_DIR" ]; then
+    printf "${RED}Error: ZMK directory not found at $ZMK_DIR${NORMAL}\n"
+    exit 1
+fi
+
+if [ ! -f "$ZMK_DIR/.venv/bin/activate" ]; then
+    printf "${RED}Error: Python virtual environment not found${NORMAL}\n"
+    exit 1
+fi
+
+source "$ZMK_DIR/.venv/bin/activate"
 
 build() {
-    printf "building ${GREEN}$1${NORMAL} for ${BLUE}$2${NORMAL}...\n"
-    (cd $ZMK_DIR/app
-        MODULE_CMD=""
-        if [ "$3" ]; then
-            MODULE_CMD="-DZMK_EXTRA_MODULES=$HOME/git/zmk_build/$3"
+    local shield=$1
+    local board=$2
+    local keyboard_module=$3
+
+    printf "building ${GREEN}${shield}${NORMAL} for ${BLUE}${board}${NORMAL}...\n"
+
+    (
+        cd "$ZMK_DIR/app" || exit 1
+
+        BASE_MODULES=""
+        if [ -d "$MODULES_DIR" ]; then
+            for module_dir in "$MODULES_DIR"/*; do
+                if [ -d "$module_dir" ]; then
+                    if [ -z "$BASE_MODULES" ]; then
+                        BASE_MODULES="$module_dir"
+                    else
+                        BASE_MODULES="$BASE_MODULES;$module_dir"
+                    fi
+                fi
+            done
         fi
-        west build -p -b $2 -- -DSHIELD=$1 \
-            -DZMK_CONFIG=$HOME/git/zmk_build/config $MODULE_CMD
-        cp build/zephyr/zmk.uf2 ~/$1.uf2
+
+        KEYBOARD_MODULE=""
+        if [ -n "$keyboard_module" ]; then
+            KEYBOARD_MODULE=";${BUILD_DIR}/${keyboard_module}"
+        fi
+
+        west build -p -b "$board" -- -DSHIELD="$shield" \
+            -DZMK_CONFIG="$CONFIG_DIR" \
+            -DZMK_EXTRA_MODULES="${BASE_MODULES}${KEYBOARD_MODULE}"
+
+        cp build/zephyr/zmk.uf2 "${HOME}/${shield}.uf2"
     )
+
     printf "${GREEN}complete${NORMAL}\n"
 }
 
 printf "${BOLD}firmware to build${NORMAL}...\n"
 printf "(1) flake\t(2) revxlp\t(3) settings reset:\t"
-read opt;
+read -r opt
+
 case $opt in
     1)
         build flake_dongle nice_nano "flake_dongle"
@@ -38,8 +79,8 @@ case $opt in
         ;;
     3)
         printf "${BOLD}select microcontroller${NORMAL}...\n"
-        printf "(1) nice nano v2\t(2) xiao ble:\t"
-        read val;
+        printf "(1) nice nano\t(2) xiao ble:\t"
+        read -r val
         case $val in
             1) MCU="nice_nano" ;;
             2) MCU="xiao_ble" ;;
@@ -47,5 +88,8 @@ case $opt in
         esac
         build settings_reset $MCU
         ;;
-    *) printf "${RED}invalid entry${NORMAL}\n" ;;
+    *)
+        printf "${RED}invalid entry${NORMAL}\n"
+        exit 1
+        ;;
 esac
