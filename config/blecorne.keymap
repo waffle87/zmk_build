@@ -16,7 +16,7 @@
 #define xxx &none
 
 #define SET_MAC UC_SET_MACOS
-#define SET_LIN UC_SET_MACOS
+#define SET_LNX UC_SET_LINUX
 
 #define BASE 0
 #define LINUX 1
@@ -112,7 +112,7 @@ ZMK_LAYER(symbols_layer,
 
 ZMK_LAYER(utility_layer,
   &bt BT_CLR    &bt BT_NXT    ___           ___           ___               ___           ___           &tog LINUX    &tog MACOS    &bt BT_CLR
-  &bootloader   &bt BT_CLR    ___           ___           ___               ___           ___           &uc SET_LIN   &uc SET_MAC   &bootloader
+  &bootloader   &bt BT_CLR    ___           ___           ___               ___           ___           &uc SET_LNX   &uc SET_MAC   &bootloader
   &kp F1        &kp F2        &kp F3        &kp F4        &kp F5            &kp F6        &kp F7        &kp F8        &kp F9        &kp F10
                               ___           ___           ___               ___           ___           ___
 )
