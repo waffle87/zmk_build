@@ -54,11 +54,12 @@ build() {
             KEYBOARD_MODULE=";${BUILD_DIR}/${keyboard_module}"
         fi
 
-        west build -p -b "$board" -- -DSHIELD="$shield" \
-            -DZMK_CONFIG="$CONFIG_DIR" \
-            -DZMK_EXTRA_MODULES="${BASE_MODULES}${KEYBOARD_MODULE}"
+        west build -p -b "$board" -- \
+                   -DSHIELD="$shield" \
+                   -DZMK_CONFIG="$CONFIG_DIR" \
+                   -DZMK_EXTRA_MODULES="${BASE_MODULES}${KEYBOARD_MODULE}"
 
-        cp build/zephyr/zmk.uf2 "${HOME}/${shield}.uf2"
+        cp build/zephyr/zmk.uf2 "${BUILD_DIR}/${shield}.uf2"
     )
 
     printf "${GREEN}complete${NORMAL}\n"
