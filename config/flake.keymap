@@ -101,8 +101,8 @@ ZMK_LAYER(symbols_layer,
 )
 
 ZMK_LAYER(utility_layer,
-  &bt BT_CLR    &bt BT_NXT    ___           ___           ___               ___           &uc SET_LNX   &uc SET_MAC   &tog MACOS    &bt BT_CLR
-  &bootloader   &bt BT_CLR    ___           ___           ___               ___           ___           ___           ___           &bootloader
+  &bt BT_CLR    ___           ___           ___           ___               ___           &uc SET_LNX   &uc SET_MAC   &tog MACOS    &bt BT_CLR
+  &bt BT_PRV    &bt BT_NXT    ___           ___           ___               ___           ___           ___           ___           ___
   &kp F1        &kp F2        &kp F3        &kp F4        &kp F5            &kp F6        &kp F7        &kp F8        &kp F9        &kp F10
                               ___           ___           ___               ___           ___           ___
 )
