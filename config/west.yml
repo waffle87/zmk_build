@@ -4,8 +4,6 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: boardsource
       url-base: https://github.com/boardsource
-    - name: waffle87
-      url-base: https://github.com/waffle87
     - name: urob
       url-base: https://github.com/urob
   projects:
@@ -14,7 +12,7 @@ manifest:
       revision: main
       import: app/west.yml
     - name: wireless-corne_zmk_config
-      remote: waffle87
+      remote: boardsource
       revision: master
     - name: zmk-helpers
       remote: urob
