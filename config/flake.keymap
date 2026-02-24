@@ -76,7 +76,7 @@ ZMK_LAYER(base_layer,
   &kp Q         &kp W         &kp E         &kp R         &kp T             &kp Y         &kp U         &kp I         &kp O         &kp P
   &hrm LALT A   &hrm LGUI S   &hrm LCTRL D  &hrm LSHFT F  &kp G             &kp H         &hrm RSHFT J  &hrm RCTRL K  &hrm RGUI L   &hrm RALT SEMI
   &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH
-                              &lt NUM ESC   &kp SPACE     ___               ___           &bs_del_num   &mo SYM
+                              ___           &lt NUM ESC   &kp SPACE         &bs_del_num   &mo SYM       ___
 )
 
 ZMK_LAYER(mac_mod_layer,
