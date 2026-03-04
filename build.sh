@@ -59,7 +59,7 @@ build() {
                    -DZMK_CONFIG="$CONFIG_DIR" \
                    -DZMK_EXTRA_MODULES="${BASE_MODULES}${KEYBOARD_MODULE}"
 
-        cp build/zephyr/zmk.uf2 "${BUILD_DIR}/${shield}.uf2"
+        cp build/zephyr/zmk.uf2 "${BUILD_DIR}/${shield}_${board}.uf2"
     )
 
     printf "${GREEN}complete${NORMAL}\n"
