@@ -1,0 +1,31 @@
+// Copyright (c) 2026 jack@pngu.org
+// SPDX-License-Identifier: MIT
+
+#include "sweepable.dtsi"
+
+/{
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        wakeup-source;
+
+        diode-direction = "col2row";
+        row-gpios
+            = <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            ;
+
+        col-gpios
+            = <&gpio1 6 GPIO_ACTIVE_HIGH>
+            , <&gpio1 4 GPIO_ACTIVE_HIGH>
+            , <&gpio1 2 GPIO_ACTIVE_HIGH>
+            , <&gpio1 1 GPIO_ACTIVE_HIGH>
+            , <&gpio1 3 GPIO_ACTIVE_HIGH>
+            ;
+    };
+};
+
+&default_transform {
+    col-offset = <5>;
+};

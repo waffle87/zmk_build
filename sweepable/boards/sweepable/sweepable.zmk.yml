@@ -1,0 +1,16 @@
+file_format: "1"
+id: sweepable
+name: Sweepable
+url: https://git.pngu.org/sweepable
+type: board
+arch: arm
+features:
+  - keys
+outputs:
+  - usb
+  - ble
+revisions:
+  - 1.0.0
+siblings:
+  - sweepable_left
+  - sweepable_right

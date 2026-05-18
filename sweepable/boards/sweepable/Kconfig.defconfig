@@ -1,0 +1,35 @@
+# Copyright (c) 2026 jack@pngu.org
+# SPDX-License-Identifier: MIT
+
+if BOARD_SWEEPABLE_LEFT
+
+config ZMK_KEYBOARD_NAME
+    default "Sweepable"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif # BOARD_SWEEPABLE_LEFT
+
+if BOARD_SWEEPABLE_LEFT || BOARD_SWEEPABLE_RIGHT
+
+config BOARD
+    default "sweepable"
+
+config ZMK_SPLIT
+    default y
+
+config BT_CTLR
+    default BT
+
+if USB
+
+config USB_NRFX
+    default y
+
+config USB_DEVICE_STACK
+    default y
+
+endif # USB
+
+endif # BOARD_SWEEPABLE_LEFT || BOARD_SWEEPABLE_RIGHT

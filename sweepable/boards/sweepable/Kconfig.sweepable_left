@@ -1,0 +1,6 @@
+# Copyright (c) 2026 jack@pngu.org
+# SPDX-License-Identifier: MIT
+
+config BOARD_SWEEPABLE_LEFT
+    select SOC_NRF52840_QIAA
+    select ZMK_BOARD_COMPAT

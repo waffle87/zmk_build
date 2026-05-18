@@ -1,0 +1,17 @@
+identifier: sweepable
+name: Sweepable
+url: https://git.pngu.org/sweepable
+type: mcu
+arch: arm
+toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
+ram: 40
+supported:
+  - usb_device
+  - ble
+  - ieee802154
+  - watchdog
+  - gpio
+  - i2c
