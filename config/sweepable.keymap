@@ -1,0 +1,108 @@
+// Copyright 2025 jack@pngu.org
+// SPDX-License-Identifier: MIT
+#include <behaviors.dtsi>
+#include <behaviors/unicode.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+#include "zmk-helpers/helper.h"
+#include "zmk-helpers/key-labels/34.h"
+#include "zmk-unicode/keys-extra.h"
+
+#undef COMBO_TERM
+#define COMBO_TERM 50
+
+#define ___ &trans
+#define xxx &none
+
+#define SET_MAC UC_SET_MACOS
+#define SET_LNX UC_SET_LINUX
+
+#define BASE 0
+#define MACOS 1
+#define NUM 2
+#define SYM 3
+#define UTIL 4
+
+ZMK_HOLD_TAP(hrm,
+  flavor = "tap-preferred";
+  tapping-term-ms = <130>;
+  quick-tap-ms = <160>;
+  bindings = <&kp>, <&kp>;
+)
+
+&uc {
+  default-mode = <UC_MODE_LINUX>;
+  minimum-length = <0>;
+  linux-key = <LC(LS(U))>;
+  macos-key = <LALT>;
+};
+
+&lt {
+  tapping-term-ms = <100>;
+};
+
+ZMK_CONDITIONAL_LAYER(tri_layer_util, NUM SYM, UTIL)
+
+ZMK_TAP_DANCE(ply_nxt_prv,
+  tapping-term-ms = <200>;
+  bindings = <&kp C_PLAY>, <&kp C_NEXT>, <&kp C_PREV>;
+)
+
+ZMK_MOD_MORPH(bs_del_num,
+  bindings = <&kp BSPC>, <&kp DEL>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_MOD_MORPH(vol_up_dn,
+  bindings = <&kp C_VOL_UP>, <&kp C_VOL_DN>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_MOD_MORPH(dash_mins,
+  bindings = <&kp MINUS>, <&uc UC_EM_DASH>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+
+ZMK_MACRO(updir, bindings = <&kp DOT &kp DOT &kp FSLH>;)
+ZMK_MACRO(leq, bindings = <&kp LT &kp EQUAL>;)
+ZMK_MACRO(geq, bindings = <&kp GT &kp EQUAL>;)
+ZMK_MACRO(pl_asgn, bindings = <&kp PLUS  &kp EQUAL>;)
+ZMK_MACRO(recall, bindings = <&kp DLLR  &kp UNDER>;)
+
+ZMK_COMBO(df_unds, &kp UNDER, LM2 LM1, ALL)
+ZMK_COMBO(jk_entr, &kp ENTER, RM1 RM2, ALL)
+ZMK_COMBO(fj_cpwd, &caps_word, LM1 RM1, ALL)
+
+ZMK_LAYER(base_layer,
+  &kp Q         &kp W         &kp E         &kp R         &kp T             &kp Y         &kp U         &kp I         &kp O         &kp P
+  &hrm LALT A   &hrm LGUI S   &hrm LCTRL D  &hrm LSHFT F  &kp G             &kp H         &hrm RSHFT J  &hrm RCTRL K  &hrm RGUI L   &hrm RALT SEMI
+  &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH
+                                            &lt NUM ESC   &kp SPACE         &bs_del_num   &mo SYM
+)
+
+ZMK_LAYER(mac_mod_layer,
+  ___           ___           ___           ___           ___               ___           ___           ___           ___           ___
+  ___           &hrm LCTRL S  &hrm LGUI D   ___           ___               ___           ___           &hrm RGUI K   &hrm RCTRL L  ___
+  ___           ___           ___           ___           ___               ___           ___           ___           ___           ___
+                                            ___           ___               ___           ___
+)
+
+ZMK_LAYER(numbers_layer,
+  &kp N1        &kp N2        &kp N3        &kp N4        &kp N5            &kp N6        &kp N7        &kp N8        &kp N9        &kp N0
+  ___           ___           &updir        &recall       &kp TAB           &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp CAPS
+  &vol_up_dn    &ply_nxt_prv  ___           ___           ___               ___           ___           ___           ___           ___
+                                            ___           ___               ___           ___
+)
+
+ZMK_LAYER(symbols_layer,
+  &kp GRAVE     &leq          &geq          &dash_mins    &kp PIPE          &kp CARET     &kp LBRC      &kp RBRC      &kp DLLR      &kp BSLH
+  &kp EXCL      &kp STAR      &pl_asgn      &kp EQUAL     &kp AMPS          &kp HASH      &kp LPAR      &kp RPAR      &kp SQT       &kp DQT
+  &kp TILDE     &kp PLUS      &kp LBKT      &kp RBKT      &kp PRCNT         &kp AT        &kp COLON     ___           ___           ___
+                                            ___           ___               ___           ___
+)
+
+ZMK_LAYER(utility_layer,
+  &bt BT_CLR    ___           ___           ___           ___               ___           &uc SET_LNX   &uc SET_MAC   &tog MACOS    &bt BT_CLR
+  &bt BT_PRV    &bt BT_NXT    ___           ___           ___               ___           ___           ___           ___           ___
+  &kp F1        &kp F2        &kp F3        &kp F4        &kp F5            &kp F6        &kp F7        &kp F8        &kp F9        &kp F10
+                                            ___           ___               ___           ___
+)
