@@ -1,0 +1,5 @@
+config SHIELD_SWEEQ_LEFT
+  def_bool $(shields_list_contains,sweeq_left)
+
+config SHIELD_SWEEQ_RIGHT
+  def_bool $(shields_list_contains,sweeq_right)

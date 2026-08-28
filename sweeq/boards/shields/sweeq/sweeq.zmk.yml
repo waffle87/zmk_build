@@ -1,0 +1,11 @@
+file_format: "1"
+id: sweeq
+name: Sweeq
+type: shield
+url: https://holykeebs.com/products/ferris-sweeq
+requires: [pro_micro]
+features:
+  - keys
+siblings:
+  - sweeq_left
+  - sweeq_right

@@ -1,0 +1,11 @@
+if SHIELD_SWEEQ_LEFT
+  config ZMK_KEYBOARD_NAME
+    default "Sweeq"
+  config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+endif
+
+if SHIELD_SWEEQ_LEFT || SHIELD_SWEEQ_RIGHT
+  config ZMK_SPLIT
+    default y
+endif

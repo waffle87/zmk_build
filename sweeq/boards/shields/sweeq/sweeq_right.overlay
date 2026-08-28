@@ -1,0 +1,5 @@
+#include "sweeq.dtsi"
+
+&default_transform {
+    col-offset = <5>;
+};

@@ -79,6 +79,10 @@ case $opt in
         build revxlp xiao_ble "revxlp"
         ;;
     3)
+        build sweeq_left nice_nano "sweeq"
+        build sweeq_right nice_nano "sweeq"
+        ;;
+    4)
         printf "${BOLD}select microcontroller${NORMAL}...\n"
         printf "(1) nice nano\t(2) xiao ble:\t"
         read -r val
