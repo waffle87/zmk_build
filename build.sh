@@ -66,7 +66,7 @@ build() {
 }
 
 printf "${BOLD}firmware to build${NORMAL}...\n"
-printf "(1) flake\t(2) revxlp\t(3) settings reset:\t"
+printf "(1) flake\t(2) revxlp\t(3) sweeq\t(4) settings reset:\t"
 read -r opt
 
 case $opt in
