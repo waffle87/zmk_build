@@ -59,7 +59,7 @@ build() {
                    -DZMK_CONFIG="$CONFIG_DIR" \
                    -DZMK_EXTRA_MODULES="${BASE_MODULES}${KEYBOARD_MODULE}"
 
-        cp build/zephyr/zmk.uf2 "${BUILD_DIR}/${shield}_${board}.uf2"
+        cp build/zephyr/zmk.uf2 "${BUILD_DIR}/${shield}.uf2"
     )
 
     printf "${GREEN}complete${NORMAL}\n"
@@ -71,16 +71,16 @@ read -r opt
 
 case $opt in
     1)
-        build flake_dongle nice_nano "flake_dongle"
-        build flake_left nice_nano "flake"
-        build flake_right nice_nano "flake"
+        build flake_dongle nice_nano//zmk "flake_dongle"
+        build flake_left nice_nano//zmk "flake"
+        build flake_right nice_nano//zmk "flake"
         ;;
     2)
         build revxlp xiao_ble "revxlp"
         ;;
     3)
-        build sweeq_left nice_nano "sweeq"
-        build sweeq_right nice_nano "sweeq"
+        build sweeq_left nice_nano//zmk "sweeq"
+        build sweeq_right nice_nano//zmk "sweeq"
         ;;
     4)
         printf "${BOLD}select microcontroller${NORMAL}...\n"
