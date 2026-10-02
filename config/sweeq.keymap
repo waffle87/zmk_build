@@ -19,7 +19,7 @@
 #define SET_LNX UC_SET_LINUX
 
 #define BASE 0
-#define MACOS 1
+#define ALT_MOD 1
 #define NUM 2
 #define SYM 3
 #define UTIL 4
@@ -74,14 +74,14 @@ ZMK_COMBO(fj_cpwd, &caps_word, LM1 RM1, ALL)
 
 ZMK_LAYER(base_layer,
   &kp Q         &kp W         &kp E         &kp R         &kp T             &kp Y         &kp U         &kp I         &kp O         &kp P
-  &hrm LALT A   &hrm LGUI S   &hrm LCTRL D  &hrm LSHFT F  &kp G             &kp H         &hrm RSHFT J  &hrm RCTRL K  &hrm RGUI L   &hrm RALT SEMI
+  &hrm LALT A   &hrm LCTRL S  &hrm LGUI D   &hrm LSHFT F  &kp G             &kp H         &hrm RSHFT J  &hrm RGUI K   &hrm RCTRL L  &hrm RALT SEMI
   &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH
                                             &lt NUM ESC   &kp SPACE         &bs_del_num   &mo SYM
 )
 
-ZMK_LAYER(mac_mod_layer,
+ZMK_LAYER(alt_mod_layer,
   ___           ___           ___           ___           ___               ___           ___           ___           ___           ___
-  ___           &hrm LCTRL S  &hrm LGUI D   ___           ___               ___           ___           &hrm RGUI K   &hrm RCTRL L  ___
+  ___           &hrm LGUI S   &hrm LCTRL D  ___           ___               ___           ___           &hrm RCTRL K  &hrm RGUI L   ___
   ___           ___           ___           ___           ___               ___           ___           ___           ___           ___
                                             ___           ___               ___           ___
 )
@@ -101,7 +101,7 @@ ZMK_LAYER(symbols_layer,
 )
 
 ZMK_LAYER(utility_layer,
-  &bt BT_CLR    ___           ___           ___           ___               ___           &uc SET_LNX   &uc SET_MAC   &tog MACOS    &bt BT_CLR
+  &bt BT_CLR    ___           ___           ___           ___               ___           &uc SET_LNX   &uc SET_MAC   &tog ALT_MOD  &bt BT_CLR
   &bt BT_PRV    &bt BT_NXT    ___           ___           ___               ___           ___           ___           ___           ___
   &kp F1        &kp F2        &kp F3        &kp F4        &kp F5            &kp F6        &kp F7        &kp F8        &kp F9        &kp F10
                                             ___           ___               ___           ___
