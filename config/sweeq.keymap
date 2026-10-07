@@ -26,8 +26,8 @@
 
 ZMK_HOLD_TAP(hrm,
   flavor = "tap-preferred";
-  tapping-term-ms = <130>;
-  quick-tap-ms = <160>;
+  tapping-term-ms = <120>;
+  quick-tap-ms = <150>;
   bindings = <&kp>, <&kp>;
 )
 
