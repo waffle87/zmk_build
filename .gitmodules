@@ -4,3 +4,6 @@
 [submodule "modules/zmk-unicode"]
 	path = modules/zmk-unicode
 	url = https://github.com/urob/zmk-unicode.git
+[submodule "modules/zmk-tri-state"]
+	path = modules/zmk-tri-state
+	url = https://github.com/urob/zmk-tri-state.git

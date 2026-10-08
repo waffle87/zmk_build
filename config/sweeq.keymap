@@ -68,6 +68,14 @@ ZMK_MACRO(geq, bindings = <&kp GT &kp EQUAL>;)
 ZMK_MACRO(pl_asgn, bindings = <&kp PLUS  &kp EQUAL>;)
 ZMK_MACRO(recall, bindings = <&kp DLLR  &kp UNDER>;)
 
+ZMK_MACRO(jump_end, bindings = <&macro_tap &kp LA(LEFT) &kp LA(RIGHT)>;)
+ZMK_MACRO(sel_prv, bindings = <&macro_tap &kp LS(LA(LEFT))>;)
+ZMK_TRI_STATE(sel_bak, bindings = <&jump_end>, <&sel_prv>, <&none>;)
+
+ZMK_MACRO(jump_bgn, bindings = <&macro_tap &kp LA(RIGHT) &kp LA(LEFT)>;)
+ZMK_MACRO(sel_nxt, bindings = <&macro_tap &kp LS(LA(RIGHT))>;)
+ZMK_TRI_STATE(sel_fwd, bindings = <&jump_bgn>, <&sel_nxt>, <&none>;)
+
 ZMK_COMBO(df_unds, &kp UNDER, LM2 LM1, ALL)
 ZMK_COMBO(jk_entr, &kp ENTER, RM1 RM2, ALL)
 ZMK_COMBO(fj_cpwd, &caps_word, LM1 RM1, ALL)
@@ -89,7 +97,7 @@ ZMK_LAYER(alt_mod_layer,
 ZMK_LAYER(numbers_layer,
   &kp N1        &kp N2        &kp N3        &kp N4        &kp N5            &kp N6        &kp N7        &kp N8        &kp N9        &kp N0
   ___           ___           &updir        &recall       &kp TAB           &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp CAPS
-  &vol_up_dn    &ply_nxt_prv  ___           ___           ___               ___           ___           ___           ___           ___
+  &vol_up_dn    &ply_nxt_prv  ___           &sel_bak      &sel_fwd          ___           ___           ___           ___           ___
                                             ___           ___               ___           ___
 )
 
